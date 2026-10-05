@@ -832,7 +832,12 @@ import {
   collection,
   query,
   orderBy,
-  onSnapshot
+  onSnapshot,
+  doc,
+  setDoc,
+  updateDoc,
+  increment,
+  serverTimestamp
 } from
 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
@@ -1039,6 +1044,374 @@ onSnapshot(
 
   }
 
+);
+
+
+/* =====================================================
+   VISITOR ID
+===================================================== */
+
+/*
+ * สร้างรหัสประจำเบราว์เซอร์แบบสุ่ม
+ *
+ * ตัวอย่าง:
+ * REN-7K4P2
+ *
+ * ไม่ใช้ชื่อ
+ * ไม่ใช้ Email
+ * ไม่ใช้ IP
+ * ไม่ใช้ fingerprint
+ */
+
+const DEVICE_KEY =
+  'rainyren_thought_device_id';
+
+
+function createDeviceId(){
+
+  const chars =
+    'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+  let code =
+    'REN-';
+
+
+  for(
+    let i = 0;
+    i < 5;
+    i++
+  ){
+
+    code +=
+      chars[
+        Math.floor(
+          Math.random() * chars.length
+        )
+      ];
+
+  }
+
+
+  return code;
+
+}
+
+
+let deviceId =
+  localStorage.getItem(
+    DEVICE_KEY
+  );
+
+
+if(!deviceId){
+
+  deviceId =
+    createDeviceId();
+
+  localStorage.setItem(
+    DEVICE_KEY,
+    deviceId
+  );
+
+}
+
+
+/* =====================================================
+   ANALYTICS
+===================================================== */
+
+const analyticsRef =
+  doc(
+    db,
+    'analytics',
+    deviceId
+  );
+
+
+let analyticsReady =
+  false;
+
+
+/*
+ * เวลาที่ Session นี้เริ่ม
+ */
+
+const sessionStarted =
+  Date.now();
+
+
+/*
+ * เวลาที่บันทึกครั้งล่าสุด
+ */
+
+let lastTimeSaved =
+  sessionStarted;
+
+
+/*
+ * ป้องกันการปิดหน้าแล้วบันทึกซ้ำ
+ */
+
+let sessionClosed =
+  false;
+
+
+/* =====================================================
+   START SESSION
+===================================================== */
+
+async function startAnalytics(){
+
+  try{
+
+    /*
+     * ทุกครั้งที่เปิดหน้า:
+     *
+     * views +1
+     * sessions +1
+     */
+
+    await setDoc(
+
+      analyticsRef,
+
+      {
+
+        deviceId:
+
+          deviceId,
+
+        views:
+          increment(1),
+
+        sessions:
+          increment(1),
+
+        totalSeconds:
+          increment(0),
+
+        lastSeen:
+          serverTimestamp()
+
+      },
+
+      {
+        merge:true
+      }
+
+    );
+
+
+    analyticsReady =
+      true;
+
+
+  }catch(error){
+
+    console.error(
+      'Analytics start error:',
+      error
+    );
+
+  }
+
+}
+
+
+startAnalytics();
+
+
+/* =====================================================
+   SAVE TIME
+===================================================== */
+
+async function saveSessionTime(){
+
+  if(
+    !analyticsReady ||
+    sessionClosed
+  ){
+
+    return;
+
+  }
+
+
+  const now =
+    Date.now();
+
+
+  let seconds =
+    Math.floor(
+      (now - lastTimeSaved) / 1000
+    );
+
+
+  /*
+   * ป้องกันค่าผิดปกติ
+   */
+
+  if(seconds < 1){
+
+    return;
+
+  }
+
+
+  /*
+   * จำกัดครั้งละไม่เกิน 60 วินาที
+   * เพื่อไม่ให้เกิดค่าผิดปกติหากเครื่องถูกพักไว้
+   */
+
+  if(seconds > 60){
+
+    seconds = 60;
+
+  }
+
+
+  lastTimeSaved =
+    now;
+
+
+  try{
+
+    await updateDoc(
+
+      analyticsRef,
+
+      {
+
+        totalSeconds:
+          increment(seconds),
+
+        lastSeen:
+          serverTimestamp()
+
+      }
+
+    );
+
+  }catch(error){
+
+    console.error(
+      'Analytics time error:',
+      error
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   HEARTBEAT
+===================================================== */
+
+/*
+ * ทุก 15 วินาที
+ * บันทึกเวลาที่อยู่ในเว็บ
+ */
+
+const analyticsTimer =
+  setInterval(
+
+    saveSessionTime,
+
+    15000
+
+  );
+
+
+/* =====================================================
+   PAGE EXIT
+===================================================== */
+
+function closeAnalytics(){
+
+  if(sessionClosed){
+
+    return;
+
+  }
+
+
+  sessionClosed =
+    true;
+
+
+  clearInterval(
+    analyticsTimer
+  );
+
+
+  /*
+   * updateDoc เป็น asynchronous
+   * เราเรียกไว้ตอน pagehide
+   * เพื่อบันทึกเวลาช่วงสุดท้าย
+   */
+
+  const now =
+    Date.now();
+
+
+  let seconds =
+    Math.floor(
+      (now - lastTimeSaved) / 1000
+    );
+
+
+  if(seconds < 1){
+
+    return;
+
+  }
+
+
+  if(seconds > 60){
+
+    seconds = 60;
+
+  }
+
+
+  updateDoc(
+
+    analyticsRef,
+
+    {
+
+      totalSeconds:
+        increment(seconds),
+
+      lastSeen:
+        serverTimestamp()
+
+    }
+
+  ).catch(
+    (error) => {
+
+      console.error(
+        'Analytics close error:',
+        error
+      );
+
+    }
+  );
+
+}
+
+
+window.addEventListener(
+  'pagehide',
+  closeAnalytics
+);
+
+
+window.addEventListener(
+  'beforeunload',
+  closeAnalytics
 );
 
 
