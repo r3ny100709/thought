@@ -61,30 +61,30 @@ body{
 
   z-index:0;
 
-  opacity:.5;
+  opacity:.45;
 
   font-size:27px;
 
 }
 
 .flower.one{
-  top:5%;
-  left:4%;
+  top:6%;
+  left:3%;
 }
 
 .flower.two{
-  top:31%;
-  right:4%;
+  top:35%;
+  right:3%;
 }
 
 .flower.three{
   bottom:13%;
-  left:5%;
+  left:4%;
 }
 
 .flower.four{
   bottom:4%;
-  right:6%;
+  right:5%;
 }
 
 
@@ -100,13 +100,13 @@ body{
 
   width:100%;
 
-  max-width:760px;
+  max-width:900px;
 
   margin:0 auto;
 
   padding:
-    12px
-    10px
+    0
+    0
     45px;
 
 }
@@ -114,28 +114,27 @@ body{
 
 /* =====================================================
    VIDEO
-   กว้างเต็ม แต่เตี้ย
 ===================================================== */
 
 .video-box{
 
   width:100%;
 
-  height:145px;
+  height:240px;
 
   overflow:hidden;
 
-  border-radius:24px;
-
   background:#fff;
 
-  border:
-    3px solid
-    rgba(255,255,255,.95);
+  border-radius:
+    0
+    0
+    28px
+    28px;
 
   box-shadow:
-    0 8px 25px
-    rgba(153,87,115,.16);
+    0 10px 30px
+    rgba(153,87,115,.18);
 
 }
 
@@ -164,53 +163,44 @@ body{
 
 
 /* =====================================================
-   WHITE MAIN BOX
+   TWO MAIN BOXES
 ===================================================== */
 
-.content{
-
-  width:100%;
-
-  margin-top:14px;
-
-  padding:
-    20px;
-
-  background:#ffffff;
-
-  border-radius:28px;
-
-  box-shadow:
-    0 10px 35px
-    rgba(145,79,108,.14);
-
-}
-
-
-/* =====================================================
-   PROFILE + THOUGHTS
-===================================================== */
-
-.main-layout{
+.workspace{
 
   display:grid;
 
   grid-template-columns:
-    125px
+    240px
     minmax(0,1fr);
 
-  gap:20px;
+  gap:15px;
 
-  align-items:start;
+  padding:
+    16px;
 
 }
 
 
 /* =====================================================
-   PROFILE — LEFT
+   LARGE PROFILE BOX
 ===================================================== */
 
-.profile{
+.profile-box{
+
+  min-height:430px;
+
+  padding:
+    24px
+    18px;
+
+  background:#fff;
+
+  border-radius:28px;
+
+  box-shadow:
+    0 9px 30px
+    rgba(145,79,108,.14);
 
   display:flex;
 
@@ -218,40 +208,42 @@ body{
 
   align-items:center;
 
+  justify-content:center;
+
   text-align:center;
 
 }
 
 
-.profile-image{
+.profile-image-large{
 
-  width:92px;
+  width:155px;
 
-  height:92px;
-
-  border-radius:50%;
+  height:155px;
 
   object-fit:cover;
 
+  border-radius:50%;
+
   border:
-    4px solid
+    5px solid
     #fff;
 
   box-shadow:
-    0 6px 20px
-    rgba(145,79,108,.2);
+    0 8px 25px
+    rgba(145,79,108,.22);
 
 }
 
 
-.profile-name{
+.profile-name-large{
 
   margin:
-    9px 0 0;
+    17px 0 0;
 
   color:#765064;
 
-  font-size:1.55rem;
+  font-size:2rem;
 
   line-height:1;
 
@@ -260,10 +252,10 @@ body{
 }
 
 
-.profile-ig{
+.profile-ig-large{
 
   margin:
-    5px 0 0;
+    8px 0 0;
 
   color:#ad788d;
 
@@ -271,17 +263,123 @@ body{
     'Itim',
     sans-serif;
 
-  font-size:.78rem;
-
-  line-height:1.1;
-
-  white-space:nowrap;
+  font-size:.9rem;
 
 }
 
 
 /* =====================================================
-   THOUGHTS — RIGHT
+   CHAT BOX
+===================================================== */
+
+.chat-box{
+
+  min-height:430px;
+
+  padding:
+    18px;
+
+  background:#fff;
+
+  border-radius:28px;
+
+  box-shadow:
+    0 9px 30px
+    rgba(145,79,108,.14);
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-width:0;
+
+}
+
+
+/* =====================================================
+   CHAT HEADER
+===================================================== */
+
+.chat-profile{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding-bottom:13px;
+
+  border-bottom:
+    1px solid
+    #f2d8e3;
+
+}
+
+
+.chat-profile-image{
+
+  width:45px;
+
+  height:45px;
+
+  flex-shrink:0;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  border:
+    2px solid
+    #fff;
+
+  box-shadow:
+    0 3px 10px
+    rgba(145,79,108,.16);
+
+}
+
+
+.chat-profile-info{
+
+  min-width:0;
+
+}
+
+
+.chat-profile-name{
+
+  margin:0;
+
+  color:#765064;
+
+  font-size:1.08rem;
+
+  font-weight:700;
+
+  line-height:1;
+
+}
+
+
+.chat-profile-ig{
+
+  margin:
+    3px 0 0;
+
+  color:#b18395;
+
+  font-family:
+    'Itim',
+    sans-serif;
+
+  font-size:.72rem;
+
+}
+
+
+/* =====================================================
+   MESSAGES
 ===================================================== */
 
 #thoughts{
@@ -292,7 +390,31 @@ body{
 
   align-items:flex-start;
 
-  gap:10px;
+  gap:13px;
+
+  flex:1;
+
+  min-width:0;
+
+  padding-top:16px;
+
+}
+
+
+/* =====================================================
+   MESSAGE ROW
+   รูปโปรไฟล์ + bubble
+===================================================== */
+
+.message-row{
+
+  display:flex;
+
+  align-items:flex-end;
+
+  gap:8px;
+
+  width:100%;
 
   min-width:0;
 
@@ -300,20 +422,47 @@ body{
 
 
 /* =====================================================
-   PINK THOUGHT BOX
+   SMALL PROFILE BESIDE EACH MESSAGE
+===================================================== */
+
+.message-avatar{
+
+  width:34px;
+
+  height:34px;
+
+  flex-shrink:0;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  border:
+    2px solid
+    #fff;
+
+  box-shadow:
+    0 3px 8px
+    rgba(145,79,108,.15);
+
+}
+
+
+/* =====================================================
+   MESSAGE BUBBLE
 ===================================================== */
 
 .thought-card{
 
-  display:block;
+  position:relative;
 
   width:fit-content;
 
-  max-width:100%;
+  max-width:calc(100% - 42px);
 
   padding:
-    10px
-    14px;
+    9px
+    13px;
 
   background:#f9d9e7;
 
@@ -321,7 +470,11 @@ body{
     1px solid
     #efbfd2;
 
-  border-radius:15px;
+  border-radius:
+    7px
+    17px
+    17px
+    17px;
 
   color:#765565;
 
@@ -330,11 +483,9 @@ body{
     'Baloo 2',
     sans-serif;
 
-  font-size:1.06rem;
+  font-size:1.04rem;
 
   line-height:1.5;
-
-  text-align:left;
 
   word-break:break-word;
 
@@ -342,7 +493,37 @@ body{
 
   box-shadow:
     0 3px 9px
-    rgba(180,95,130,.08);
+    rgba(180,95,130,.07);
+
+}
+
+
+/* =====================================================
+   CHAT TAIL
+===================================================== */
+
+.thought-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:-1px;
+
+  left:-6px;
+
+  width:10px;
+
+  height:10px;
+
+  background:#f9d9e7;
+
+  border-left:
+    1px solid
+    #efbfd2;
+
+  transform:
+    skewX(-28deg);
 
 }
 
@@ -363,7 +544,7 @@ body{
     'Baloo 2',
     sans-serif;
 
-  font-size:.63rem;
+  font-size:.6rem;
 
   text-align:right;
 
@@ -382,9 +563,10 @@ body{
   width:100%;
 
   padding:
-    18px 5px;
+    20px
+    4px;
 
-  text-align:left;
+  text-align:center;
 
   color:#b78396;
 
@@ -401,85 +583,107 @@ body{
    MOBILE
 ===================================================== */
 
-@media(max-width:520px){
+@media(max-width:620px){
 
   .page{
 
-    padding:
-      9px
-      8px
-      35px;
+    padding-bottom:30px;
 
   }
 
-
-  /* คลิปกว้างมากและสั้น */
 
   .video-box{
 
-    height:125px;
+    height:210px;
 
-    border-radius:21px;
+    border-radius:
+      0
+      0
+      23px
+      23px;
 
   }
 
 
-  .content{
+  .workspace{
 
-    margin-top:11px;
+    grid-template-columns:1fr;
+
+    gap:12px;
 
     padding:
-      17px
-      13px;
-
-    border-radius:24px;
+      12px 9px;
 
   }
 
 
-  .main-layout{
+  .profile-box{
 
-    grid-template-columns:
-      92px
-      minmax(0,1fr);
+    min-height:205px;
 
-    gap:13px;
+    padding:18px;
 
-  }
+    flex-direction:row;
 
+    justify-content:flex-start;
 
-  .profile-image{
+    gap:16px;
 
-    width:76px;
-
-    height:76px;
+    text-align:left;
 
   }
 
 
-  .profile-name{
+  .profile-image-large{
 
-    font-size:1.3rem;
+    width:105px;
+
+    height:105px;
 
   }
 
 
-  .profile-ig{
+  .profile-name-large{
 
-    font-size:.68rem;
+    margin:0;
+
+    font-size:1.65rem;
+
+  }
+
+
+  .profile-ig-large{
+
+    margin-top:7px;
+
+    font-size:.78rem;
+
+  }
+
+
+  .chat-box{
+
+    min-height:380px;
+
+    padding:15px;
+
+  }
+
+
+  .message-avatar{
+
+    width:31px;
+
+    height:31px;
 
   }
 
 
   .thought-card{
 
-    padding:
-      9px
-      12px;
+    max-width:calc(100% - 40px);
 
-    font-size:.98rem;
-
-    border-radius:14px;
+    font-size:1rem;
 
   }
 
@@ -487,41 +691,51 @@ body{
 
 
 /* =====================================================
-   VERY SMALL SCREEN
+   SMALL PHONE
 ===================================================== */
 
-@media(max-width:360px){
+@media(max-width:380px){
 
-  .main-layout{
+  .video-box{
 
-    grid-template-columns:
-      82px
-      minmax(0,1fr);
-
-    gap:10px;
+    height:180px;
 
   }
 
 
-  .profile-image{
+  .profile-box{
 
-    width:68px;
-
-    height:68px;
+    min-height:180px;
 
   }
 
 
-  .profile-name{
+  .profile-image-large{
 
-    font-size:1.18rem;
+    width:85px;
+
+    height:85px;
 
   }
 
 
-  .profile-ig{
+  .profile-name-large{
 
-    font-size:.61rem;
+    font-size:1.45rem;
+
+  }
+
+
+  .profile-ig-large{
+
+    font-size:.7rem;
+
+  }
+
+
+  .chat-box{
+
+    min-height:350px;
 
   }
 
@@ -529,6 +743,25 @@ body{
   .thought-card{
 
     font-size:.92rem;
+
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  *{
+
+    scroll-behavior:auto !important;
+
+    transition:none !important;
+
+    animation:none !important;
 
   }
 
@@ -584,41 +817,72 @@ body{
 
 
   <!-- ===================================================
-       WHITE CONTENT BOX
+       MAIN WORKSPACE
   ==================================================== -->
 
-  <section class="content">
+  <section class="workspace">
 
 
-    <div class="main-layout">
+    <!-- ===============================================
+         LARGE PROFILE BOX
+    ================================================ -->
+
+    <aside class="profile-box">
+
+      <img
+        class="profile-image-large"
+        src="./IMG_7790.jpeg"
+        alt="Mizuki"
+      >
+
+      <div>
+
+        <h1 class="profile-name-large">
+          Mizuki
+        </h1>
+
+        <p class="profile-ig-large">
+          IG: kllurself.ut
+        </p>
+
+      </div>
+
+    </aside>
 
 
-      <!-- ===============================================
-           PROFILE — LEFT
-      ================================================ -->
+    <!-- ===============================================
+         CHAT BOX
+    ================================================ -->
 
-      <aside class="profile">
+    <section class="chat-box">
+
+
+      <!-- CHAT HEADER -->
+
+      <div class="chat-profile">
 
         <img
-          class="profile-image"
+          class="chat-profile-image"
           src="./IMG_7790.jpeg"
           alt="Mizuki"
         >
 
-        <h1 class="profile-name">
-          Mizuki
-        </h1>
+        <div class="chat-profile-info">
 
-        <p class="profile-ig">
-          IG: kllurself.ut
-        </p>
+          <p class="chat-profile-name">
+            Mizuki
+          </p>
 
-      </aside>
+          <p class="chat-profile-ig">
+            kllurself.ut
+          </p>
+
+        </div>
+
+      </div>
 
 
-      <!-- ===============================================
-           THOUGHTS — RIGHT
-      ================================================ -->
+      <!-- FIREBASE MESSAGES -->
 
       <div id="thoughts">
 
@@ -629,7 +893,7 @@ body{
       </div>
 
 
-    </div>
+    </section>
 
 
   </section>
@@ -739,10 +1003,36 @@ function formatDate(timestamp){
 
 
 /* =====================================================
-   CREATE POST
+   CREATE MESSAGE
 ===================================================== */
 
 function createPost(post){
+
+  /* แถวของข้อความ */
+
+  const row =
+    document.createElement('div');
+
+  row.className =
+    'message-row';
+
+
+  /* รูปโปรไฟล์เล็ก */
+
+  const avatar =
+    document.createElement('img');
+
+  avatar.className =
+    'message-avatar';
+
+  avatar.src =
+    './IMG_7790.jpeg';
+
+  avatar.alt =
+    'Mizuki';
+
+
+  /* กล่องข้อความ */
 
   const card =
     document.createElement('article');
@@ -761,6 +1051,8 @@ function createPost(post){
   card.appendChild(text);
 
 
+  /* วันที่ */
+
   if(post.createdAt){
 
     const date =
@@ -777,7 +1069,12 @@ function createPost(post){
   }
 
 
-  return card;
+  row.appendChild(avatar);
+
+  row.appendChild(card);
+
+
+  return row;
 
 }
 
