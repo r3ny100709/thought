@@ -19,10 +19,6 @@
 
 <style>
 
-/* =====================================================
-   BASIC
-===================================================== */
-
 *{
   box-sizing:border-box;
 }
@@ -36,17 +32,13 @@ body{
 }
 
 body{
-
   background:#f8dce7;
-
   color:#5c4050;
-
   font-family:
     'Mali',
     'Sarabun',
     'Noto Sans Thai',
     sans-serif;
-
   overflow-x:hidden;
 }
 
@@ -56,15 +48,10 @@ body{
 ===================================================== */
 
 .page{
-
   width:100%;
-
   min-height:100vh;
-
   margin:0;
-
   padding:0;
-
 }
 
 
@@ -73,46 +60,25 @@ body{
 ===================================================== */
 
 .video-box{
-
   width:100%;
-
   margin:0;
-
   padding:0;
-
   overflow:hidden;
-
   background:#000;
-
-  border-radius:
-    0 0 18px 18px;
-
+  border-radius:0 0 18px 18px;
 }
 
-
 .video-box video{
-
   display:block;
-
   width:100%;
-
   height:240px;
-
   object-fit:cover;
-
   border:0;
-
-  border-radius:
-    0 0 18px 18px;
-
+  border-radius:0 0 18px 18px;
   pointer-events:none;
-
   user-select:none;
-
   -webkit-user-select:none;
-
   -webkit-touch-callout:none;
-
   -webkit-user-drag:none;
 }
 
@@ -122,19 +88,11 @@ body{
 ===================================================== */
 
 .workspace{
-
   width:100%;
-
   display:grid;
-
-  grid-template-columns:
-    240px
-    minmax(0,1fr);
-
+  grid-template-columns:240px minmax(0,1fr);
   gap:16px;
-
   padding:16px;
-
 }
 
 
@@ -143,78 +101,81 @@ body{
 ===================================================== */
 
 .profile-box{
-
   width:100%;
-
   min-height:430px;
-
   padding:28px 18px;
-
   background:#fff;
-
   border-radius:24px;
-
-  border:
-    1px solid
-    rgba(240,145,175,.35);
-
-  box-shadow:
-    0 8px 25px
-    rgba(145,70,100,.08);
+  border:1px solid rgba(240,145,175,.35);
+  box-shadow:0 8px 25px rgba(145,70,100,.08);
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:flex-start;
-
   text-align:center;
 }
 
-
 .profile-box img{
-
   width:155px;
-
   height:155px;
-
   object-fit:cover;
-
   border-radius:50%;
-
   margin-bottom:18px;
-
-  border:
-    5px solid
-    #f8dce7;
-
-  box-shadow:
-    0 5px 18px
-    rgba(200,100,140,.18);
+  border:5px solid #f8dce7;
+  box-shadow:0 5px 18px rgba(200,100,140,.18);
 }
 
-
 .profile-box h1{
-
   margin:0 0 5px;
-
   font-size:1.7rem;
-
   font-weight:700;
-
   color:#654354;
 }
 
-
 .profile-box .ig{
-
   margin:0;
-
   font-size:.9rem;
-
   color:#ad7d91;
+}
+
+
+/* =====================================================
+   ONLINE STATUS
+===================================================== */
+
+.online-status{
+
+  margin-top:10px;
+
+  font-size:.82rem;
+
+  font-weight:500;
+
+  color:#76a66f;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:4px;
+
+}
+
+.online-status .dot{
+
+  font-size:.85rem;
+
+  line-height:1;
+
+  filter:
+    drop-shadow(
+      0 0 3px
+      rgba(80,190,80,.45)
+    );
+
 }
 
 
@@ -223,27 +184,15 @@ body{
 ===================================================== */
 
 .chat-box{
-
   width:100%;
-
   min-height:430px;
-
   background:#fff;
-
   border-radius:24px;
-
-  border:
-    1px solid
-    rgba(240,145,175,.35);
-
-  box-shadow:
-    0 8px 25px
-    rgba(145,70,100,.08);
-
+  border:1px solid rgba(240,145,175,.35);
+  box-shadow:0 8px 25px rgba(145,70,100,.08);
   overflow:hidden;
 
   display:flex;
-
   flex-direction:column;
 }
 
@@ -253,202 +202,105 @@ body{
 ===================================================== */
 
 .chat-header{
-
   display:flex;
-
   align-items:center;
-
   gap:10px;
-
   padding:16px 20px;
-
-  border-bottom:
-    1px solid
-    #f5dbe4;
-
+  border-bottom:1px solid #f5dbe4;
   background:#fff;
 }
 
-
 .chat-header img{
-
   width:42px;
-
   height:42px;
-
   object-fit:cover;
-
   border-radius:50%;
-
-  border:
-    2px solid
-    #f4c5d5;
+  border:2px solid #f4c5d5;
 }
 
-
 .chat-header-text{
-
   display:flex;
-
   flex-direction:column;
-
   line-height:1.25;
 }
 
-
 .chat-header-text strong{
-
   font-size:1rem;
-
   color:#624354;
 }
 
-
 .chat-header-text span{
-
   font-size:.75rem;
-
   color:#b28a9a;
 }
 
 
 /* =====================================================
-   THOUGHTS AREA
+   THOUGHTS
 ===================================================== */
 
 #thoughts{
-
   flex:1;
-
   padding:20px;
-
   display:flex;
-
   flex-direction:column;
-
   gap:18px;
-
   overflow-y:auto;
 }
 
 
 /* =====================================================
-   MESSAGE ROW
+   MESSAGE
 ===================================================== */
 
 .message-row{
-
   display:flex;
-
   align-items:flex-start;
-
   gap:9px;
-
   width:100%;
 }
 
-
-/* =====================================================
-   MESSAGE AVATAR
-===================================================== */
-
 .message-avatar{
-
-  flex:
-    0 0 34px;
-
+  flex:0 0 34px;
   width:34px;
-
   height:34px;
-
   margin-top:3px;
-
   object-fit:cover;
-
   border-radius:50%;
-
-  border:
-    2px solid
-    #f4c5d5;
-
-  box-shadow:
-    0 2px 6px
-    rgba(180,90,125,.12);
+  border:2px solid #f4c5d5;
+  box-shadow:0 2px 6px rgba(180,90,125,.12);
 }
 
 
 /* =====================================================
-   THOUGHT CARD
+   BUBBLE
 ===================================================== */
 
 .thought-card{
-
   position:relative;
-
-  max-width:
-    min(78%, 620px);
-
-  padding:
-    13px
-    16px
-    10px;
-
+  max-width:min(78%,620px);
+  padding:13px 16px 10px;
   background:#f8dce7;
-
-  border:
-    1px solid
-    #efbfd0;
-
-  border-radius:
-    4px
-    18px
-    18px
-    18px;
-
+  border:1px solid #efbfd0;
+  border-radius:4px 18px 18px 18px;
   color:#624354;
-
   font-size:.95rem;
-
   line-height:1.65;
-
   word-break:break-word;
-
-  box-shadow:
-    0 3px 10px
-    rgba(180,90,125,.06);
+  box-shadow:0 3px 10px rgba(180,90,125,.06);
 }
 
-
-/* =====================================================
-   CHAT BUBBLE TAIL
-===================================================== */
-
 .thought-card::before{
-
   content:"";
-
   position:absolute;
-
   left:-7px;
-
   top:10px;
-
   width:13px;
-
   height:13px;
-
   background:#f8dce7;
-
-  border-left:
-    1px solid
-    #efbfd0;
-
-  border-bottom:
-    1px solid
-    #efbfd0;
-
-  transform:
-    rotate(45deg);
+  border-left:1px solid #efbfd0;
+  border-bottom:1px solid #efbfd0;
+  transform:rotate(45deg);
 }
 
 
@@ -457,15 +309,10 @@ body{
 ===================================================== */
 
 .thought-date{
-
   display:block;
-
   margin-top:7px;
-
   font-size:.68rem;
-
   color:#b78b9c;
-
   text-align:right;
 }
 
@@ -475,15 +322,10 @@ body{
 ===================================================== */
 
 .empty{
-
   width:100%;
-
   padding:35px 15px;
-
   text-align:center;
-
   color:#c09aaa;
-
   font-size:.9rem;
 }
 
@@ -495,76 +337,43 @@ body{
 @media (max-width:700px){
 
   .video-box{
-
-    border-radius:
-      0 0 14px 14px;
-
+    border-radius:0 0 14px 14px;
   }
 
   .video-box video{
-
     height:210px;
-
-    border-radius:
-      0 0 14px 14px;
-
+    border-radius:0 0 14px 14px;
   }
-
 
   .workspace{
-
     display:flex;
-
     flex-direction:column;
-
     gap:14px;
-
     padding:14px;
-
   }
-
 
   .profile-box{
-
     min-height:auto;
-
     padding:25px 18px;
-
   }
-
 
   .profile-box img{
-
     width:135px;
-
     height:135px;
-
   }
-
 
   .chat-box{
-
     min-height:500px;
-
     border-radius:22px;
-
   }
-
 
   #thoughts{
-
     padding:16px;
-
   }
 
-
   .thought-card{
-
-    max-width:
-      calc(100% - 5px);
-
+    max-width:calc(100% - 5px);
     font-size:.9rem;
-
   }
 
 }
@@ -577,27 +386,19 @@ body{
 @media (max-width:380px){
 
   .workspace{
-
     padding:10px;
-
   }
 
   .profile-box{
-
     border-radius:20px;
-
   }
 
   .chat-box{
-
     border-radius:20px;
-
   }
 
   #thoughts{
-
     padding:13px;
-
   }
 
 }
@@ -609,13 +410,10 @@ body{
 
 <body>
 
-
 <main class="page">
 
 
-  <!-- ===================================================
-       VIDEO
-  ==================================================== -->
+  <!-- VIDEO -->
 
   <div class="video-box">
 
@@ -642,16 +440,12 @@ body{
   </div>
 
 
-  <!-- ===================================================
-       PROFILE + CHAT
-  ==================================================== -->
+  <!-- PROFILE + CHAT -->
 
   <section class="workspace">
 
 
-    <!-- =================================================
-         PROFILE
-    ================================================== -->
+    <!-- PROFILE -->
 
     <aside class="profile-box">
 
@@ -668,17 +462,24 @@ body{
         IG: kllurself.ut
       </p>
 
+      <div class="online-status">
+
+        <span class="dot">
+          🟢
+        </span>
+
+        <span>
+          online
+        </span>
+
+      </div>
+
     </aside>
 
 
-    <!-- =================================================
-         CHAT
-    ================================================== -->
+    <!-- CHAT -->
 
     <section class="chat-box">
-
-
-      <!-- HEADER -->
 
       <header class="chat-header">
 
@@ -702,8 +503,6 @@ body{
       </header>
 
 
-      <!-- FIREBASE MESSAGES -->
-
       <div id="thoughts">
 
         <div class="empty">
@@ -711,7 +510,6 @@ body{
         </div>
 
       </div>
-
 
     </section>
 
@@ -732,7 +530,6 @@ import {
   initializeApp
 } from
 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-
 
 import {
   getFirestore,
@@ -773,13 +570,12 @@ const firebaseConfig = {
 const app =
   initializeApp(firebaseConfig);
 
-
 const db =
   getFirestore(app);
 
 
 /* =====================================================
-   THOUGHTS
+   FIREBASE THOUGHTS
 ===================================================== */
 
 const thoughtsBox =
@@ -828,16 +624,12 @@ onSnapshot(
           doc.data();
 
 
-        /* MESSAGE ROW */
-
         const row =
           document.createElement('div');
 
         row.className =
           'message-row';
 
-
-        /* AVATAR */
 
         const avatar =
           document.createElement('img');
@@ -852,20 +644,15 @@ onSnapshot(
           'Mizuki';
 
 
-        /* BUBBLE */
-
         const bubble =
           document.createElement('div');
 
         bubble.className =
           'thought-card';
 
-
         bubble.textContent =
           data.text || '';
 
-
-        /* DATE */
 
         if(data.createdAt){
 
@@ -893,7 +680,6 @@ onSnapshot(
           dateEl.textContent =
             date;
 
-
           bubble.appendChild(
             dateEl
           );
@@ -908,7 +694,6 @@ onSnapshot(
         row.appendChild(
           bubble
         );
-
 
         thoughtsBox.appendChild(
           row
@@ -995,7 +780,6 @@ setInterval(
 );
 
 </script>
-
 
 </body>
 
