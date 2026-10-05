@@ -1,532 +1,599 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thought</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+<title>Thought — Mizuki</title>
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Itim&display=swap"
+  rel="stylesheet"
+>
 <style>
+/* =====================================================
+   BASIC
+===================================================== */
 *{
   box-sizing:border-box;
 }
-html,body{
+html,
+body{
   margin:0;
-  padding:0;
   min-height:100%;
 }
 body{
-  background:#f9dce8;
-  color:#9b687d;
-  font-family:"Baloo 2","Itim",sans-serif;
+  background:
+    #f8dce8;
+  color:#6f5260;
+  font-family:
+    'Baloo 2',
+    'Itim',
+    sans-serif;
+  overflow-x:hidden;
 }
+/* =====================================================
+   DECORATION
+===================================================== */
+.flower{
+  position:fixed;
+  font-size:28px;
+  opacity:.55;
+  pointer-events:none;
+  z-index:0;
+}
+.flower.one{
+  top:5%;
+  left:4%;
+  transform:rotate(-15deg);
+}
+.flower.two{
+  top:28%;
+  right:4%;
+  transform:rotate(20deg);
+}
+.flower.three{
+  bottom:12%;
+  left:5%;
+  transform:rotate(10deg);
+}
+.flower.four{
+  bottom:4%;
+  right:6%;
+  transform:rotate(-15deg);
+}
+/* =====================================================
+   MAIN
+===================================================== */
 .page{
-  width:min(1180px,92%);
-  margin:30px auto 60px;
-}
-/* =========================
-   TOP VIDEO
-========================= */
-.banner{
+  position:relative;
+  z-index:1;
   width:100%;
-  height:245px;
+  max-width:700px;
+  margin:0 auto;
+  padding:
+    20px
+    14px
+    45px;
+}
+/* =====================================================
+   TOP VIDEO
+===================================================== */
+.video-box{
+  width:100%;
+  height:150px;
   overflow:hidden;
   border-radius:28px;
-  background:#f5cbdc;
+  background:#fff;
   box-shadow:
-    0 10px 28px rgba(170,100,125,.10),
-    inset 0 0 0 1px rgba(255,255,255,.45);
+    0 8px 25px
+    rgba(163,100,126,.15);
+  border:
+    3px solid
+    rgba(255,255,255,.9);
 }
-.banner video{
+.video-box video{
   width:100%;
   height:100%;
-  object-fit:cover;
   display:block;
+  object-fit:cover;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  -webkit-user-drag:none;
 }
-/* =========================
-   MAIN
-========================= */
-.main-area{
-  display:grid;
-  grid-template-columns:250px minmax(0,1fr);
-  gap:28px;
-  margin-top:28px;
-  align-items:start;
-}
-/* =========================
+/* =====================================================
    PROFILE
-========================= */
+===================================================== */
 .profile{
-  position:relative;
-  text-align:center;
-  padding:28px 18px 24px;
-  background:linear-gradient(
-    145deg,
-    #fff1f6,
-    #f9d9e7
-  );
-  border-radius:28px;
-  border:none;
-  box-shadow:
-    0 10px 25px rgba(170,95,125,.10),
-    0 2px 7px rgba(170,95,125,.05);
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:
+    20px 6px
+    16px;
 }
-.profile::before{
-  content:"🎀";
-  position:absolute;
-  top:10px;
-  left:13px;
-  font-size:22px;
-  transform:rotate(-10deg);
-}
-.profile::after{
-  content:"🌸";
-  position:absolute;
-  right:13px;
-  bottom:12px;
-  font-size:18px;
-  opacity:.65;
-}
-.profile-frame{
-  width:185px;
-  height:185px;
-  margin:0 auto 14px;
+.profile-image{
+  width:86px;
+  height:86px;
+  flex-shrink:0;
   border-radius:50%;
-  padding:7px;
-  background:#fff8fb;
-  box-shadow:
-    0 7px 18px rgba(160,90,120,.10),
-    inset 0 0 0 1px rgba(255,255,255,.75);
-}
-.profile-frame img{
-  width:100%;
-  height:100%;
   object-fit:cover;
-  border-radius:50%;
-  display:block;
+  border:
+    4px solid
+    #fff;
+  box-shadow:
+    0 5px 18px
+    rgba(153,88,115,.18);
+}
+.profile-info{
+  min-width:0;
+  text-align:left;
 }
 .profile-name{
   margin:0;
-  font-family:"Itim","Baloo 2",sans-serif;
-  font-size:1.65rem;
-  color:#a56d83;
-  line-height:1.2;
+  color:#754f61;
+  font-size:1.8rem;
+  font-weight:700;
+  line-height:1;
 }
-/* =========================
-   DECORATIVE LINES
-========================= */
-.title-decoration{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:5px;
-  height:10px;
-  margin:6px auto 3px;
+.profile-handle{
+  margin:
+    4px 0 2px;
+  color:#a56d84;
+  font-family:'Itim',sans-serif;
+  font-size:1.15rem;
 }
-.title-decoration span{
-  display:block;
-  height:3px;
-  border-radius:20px;
-  background:#d45b89;
+.profile-subtitle{
+  margin:0;
+  color:#b17c91;
+  font-family:'Itim',sans-serif;
+  font-size:.95rem;
+}
+/* =====================================================
+   FLOWER DIVIDER
+===================================================== */
+.divider{
+  text-align:center;
+  color:#d58ca8;
+  font-size:1.35rem;
+  letter-spacing:8px;
+  margin:
+    8px 0
+    18px;
+}
+/* =====================================================
+   CONTENT
+===================================================== */
+.content{
+  width:100%;
+  padding:
+    22px 16px
+    28px;
+  background:#ffffff;
+  border-radius:30px;
   box-shadow:
-    0 1px 3px rgba(180,70,115,.15);
+    0 10px 35px
+    rgba(150,87,113,.13);
 }
-.title-decoration span:nth-child(1){
-  width:12px;
-  opacity:.55;
+/* =====================================================
+   THOUGHT TITLE
+===================================================== */
+.thought-title{
+  margin:
+    0 0 16px;
+  text-align:center;
+  color:#8d596f;
+  font-family:'Itim',sans-serif;
+  font-size:1.65rem;
 }
-.title-decoration span:nth-child(2){
-  width:28px;
+/* =====================================================
+   POSTS
+===================================================== */
+#thoughts{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.thought-card{
+  width:100%;
+  padding:
+    20px
+    18px;
+  background:
+    linear-gradient(
+      135deg,
+      #fde8f0,
+      #f9dce8
+    );
+  border-radius:22px;
+  border:
+    1px solid
+    rgba(211,143,169,.25);
+  box-shadow:
+    0 4px 15px
+    rgba(165,91,121,.08);
+  color:#755766;
+  font-family:
+    'Itim',
+    'Baloo 2',
+    sans-serif;
+  font-size:1.15rem;
+  line-height:1.65;
+  text-align:left;
+  word-break:break-word;
+  white-space:pre-wrap;
+}
+.post-date{
+  display:block;
+  margin-top:10px;
+  color:#bd8da0;
+  font-family:'Baloo 2',sans-serif;
+  font-size:.78rem;
+  text-align:right;
   opacity:.8;
 }
-.title-decoration span:nth-child(3){
-  width:42px;
-}
-.title-decoration span:nth-child(4){
-  width:18px;
-  opacity:.7;
-}
-.title-decoration span:nth-child(5){
-  width:8px;
-  opacity:.5;
-}
-/* =========================
-   SMALL SPOTIFY PLAYER
-========================= */
-.music-player{
-  margin:8px auto 0;
-  width:100%;
-  max-width:220px;
-}
-.music-caption{
-  margin:0 0 6px;
-  font-family:"Itim","Baloo 2",sans-serif;
-  font-size:.68rem;
-  letter-spacing:.4px;
-  color:#b47c91;
-  line-height:1.2;
-}
-.spotify-box{
-  width:100%;
-  height:82px;
-  overflow:hidden;
-  border-radius:14px;
-  background:#f7c8da;
-  box-shadow:
-    0 5px 14px rgba(190,90,130,.12),
-    inset 0 0 0 1px rgba(255,255,255,.60);
-}
-.spotify-frame{
-  display:block;
-  width:100%;
-  height:82px;
-  border:0;
-  border-radius:14px;
-}
-.music-wave{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:3px;
-  height:16px;
-  margin-top:5px;
-  opacity:.55;
-}
-.music-wave span{
-  width:2px;
-  border-radius:10px;
-  background:#d184a2;
-  animation:wave 1.15s ease-in-out infinite;
-}
-.music-wave span:nth-child(1){
-  height:5px;
-  animation-delay:.05s;
-}
-.music-wave span:nth-child(2){
-  height:9px;
-  animation-delay:.15s;
-}
-.music-wave span:nth-child(3){
-  height:13px;
-  animation-delay:.25s;
-}
-.music-wave span:nth-child(4){
-  height:7px;
-  animation-delay:.35s;
-}
-.music-wave span:nth-child(5){
-  height:11px;
-  animation-delay:.45s;
-}
-.music-wave span:nth-child(6){
-  height:5px;
-  animation-delay:.55s;
-}
-.music-wave span:nth-child(7){
-  height:14px;
-  animation-delay:.65s;
-}
-.music-wave span:nth-child(8){
-  height:8px;
-  animation-delay:.75s;
-}
-.music-wave span:nth-child(9){
-  height:12px;
-  animation-delay:.85s;
-}
-.music-wave span:nth-child(10){
-  height:6px;
-  animation-delay:.95s;
-}
-@keyframes wave{
-  0%,100%{
-    transform:scaleY(.65);
-  }
-  50%{
-    transform:scaleY(1);
-  }
-}
-/* =========================
-   RIGHT CONTENT
-========================= */
-.content{
-  position:relative;
-  min-width:0;
-  padding:28px 30px 32px;
-
-  /* เปลี่ยนกล่อง kllurself.ut เป็นสีขาว */
-  background:#ffffff;
-
-  border-radius:28px;
-  border:none;
-  box-shadow:
-    0 10px 25px rgba(170,95,125,.10),
-    0 2px 7px rgba(170,95,125,.05);
-}
-.content::before{
-  content:"🌷";
-  position:absolute;
-  top:12px;
-  right:17px;
-  font-size:22px;
-  opacity:.65;
-}
-.content::after{
-  content:"♡";
-  position:absolute;
-  left:18px;
-  bottom:12px;
-  font-size:22px;
-  color:#d694ae;
-  opacity:.55;
-}
-.content-title{
-  margin:0;
-  font-family:"Itim","Baloo 2",sans-serif;
-  font-size:2rem;
-  color:#a66f83;
-  line-height:1.15;
-}
-/* =========================
-   FLOWER DIVIDER
-========================= */
-.flower-divider{
-  margin-top:7px;
-  font-size:1rem;
-  color:#c48aa0;
-  letter-spacing:4px;
-}
-/* =========================
-   THOUGHT BOX
-========================= */
-.thought-card{
-  position:relative;
-  margin-top:28px;
-  padding:24px 26px;
-  background:linear-gradient(
-    135deg,
-    #fff2f7,
-    #fde5ef
-  );
-  border-radius:22px;
-  box-shadow:
-    inset 0 0 0 1px rgba(246,194,212,.22),
-    0 8px 22px rgba(190,110,140,.08);
-}
-.thought-card::before{
-  content:"🌸";
-  position:absolute;
-  top:13px;
-  right:18px;
-  font-size:20px;
-  opacity:.7;
-}
-.thought-card-text{
-  margin:0;
-  color:#a66f83;
-  font-family:"Itim","Baloo 2",sans-serif;
+/* =====================================================
+   LOADING / EMPTY
+===================================================== */
+.loading{
+  padding:25px;
+  text-align:center;
+  color:#b78396;
+  font-family:'Itim',sans-serif;
   font-size:1.05rem;
-  line-height:1.9;
 }
-/* =========================
-   DECORATIONS
-========================= */
-.corner-flower{
-  position:fixed;
-  pointer-events:none;
-  opacity:.38;
-  font-size:25px;
+.empty{
+  padding:25px 15px;
+  text-align:center;
+  color:#b78396;
+  font-family:'Itim',sans-serif;
+  font-size:1.05rem;
 }
-.corner-flower.one{
-  left:18px;
-  top:18px;
+/* =====================================================
+   SPOTIFY
+===================================================== */
+.spotify{
+  margin:
+    18px 0
+    6px;
 }
-.corner-flower.two{
-  right:18px;
-  bottom:18px;
+.spotify iframe{
+  width:100%;
+  height:152px;
+  border:0;
+  border-radius:18px;
 }
-/* =========================
+/* =====================================================
+   SPOTIFY CAPTION
+===================================================== */
+.spotify-caption{
+  margin:
+    7px 0 0;
+  text-align:center;
+  color:#b17c91;
+  font-family:'Itim',sans-serif;
+  font-size:.95rem;
+}
+/* =====================================================
    MOBILE
-========================= */
-@media(max-width:700px){
+===================================================== */
+@media(max-width:480px){
   .page{
-    width:92%;
-    margin-top:18px;
+    padding:
+      14px
+      10px
+      35px;
   }
-  .banner{
-    height:175px;
-    border-radius:22px;
-  }
-  .main-area{
-    grid-template-columns:1fr;
-    gap:18px;
-    margin-top:22px;
+  .video-box{
+    height:125px;
+    border-radius:24px;
   }
   .profile{
-    padding:25px 16px 22px;
-    border-radius:25px;
+    margin-top:18px;
   }
-  .profile-frame{
-    width:145px;
-    height:145px;
+  .profile-image{
+    width:76px;
+    height:76px;
   }
   .profile-name{
-    font-size:1.45rem;
-  }
-  .title-decoration{
-    margin-top:5px;
-  }
-  .title-decoration span:nth-child(1){
-    width:9px;
-  }
-  .title-decoration span:nth-child(2){
-    width:22px;
-  }
-  .title-decoration span:nth-child(3){
-    width:34px;
-  }
-  .title-decoration span:nth-child(4){
-    width:15px;
-  }
-  .title-decoration span:nth-child(5){
-    width:6px;
-  }
-  .music-player{
-    max-width:205px;
-  }
-  .music-caption{
-    font-size:.62rem;
-  }
-  .spotify-box,
-  .spotify-frame{
-    height:78px;
+    font-size:1.6rem;
   }
   .content{
-    padding:24px 20px 28px;
-    border-radius:25px;
-    text-align:left;
-  }
-  .content-title{
-    font-size:1.7rem;
-  }
-  .content .title-decoration{
-    justify-content:flex-start;
+    padding:
+      19px 12px
+      24px;
+    border-radius:26px;
   }
   .thought-card{
-    margin-top:20px;
-    padding:20px;
+    padding:
+      17px 15px;
+    font-size:1.08rem;
   }
-  .thought-card-text{
-    font-size:1rem;
+}
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+@media(prefers-reduced-motion:reduce){
+  *{
+    scroll-behavior:auto !important;
   }
 }
 </style>
 </head>
 <body>
-<div class="corner-flower one">
-  🌸
-</div>
-<div class="corner-flower two">
-  🎀
-</div>
-<div class="page">
-  <!-- TOP VIDEO -->
-  <div class="banner">
+<!-- =====================================================
+     DECORATIONS
+===================================================== -->
+<div class="flower one">🌷</div>
+<div class="flower two">🌸</div>
+<div class="flower three">🎀</div>
+<div class="flower four">🌷</div>
+<!-- =====================================================
+     PAGE
+===================================================== -->
+<main class="page">
+  <!-- ===================================================
+       VIDEO
+  ==================================================== -->
+  <div class="video-box">
     <video
-      id="topVideo"
       autoplay
       muted
       loop
       playsinline
-      preload="auto">
+      preload="auto"
+      disablepictureinpicture
+      disableremoteplayback
+      controlslist="nodownload nofullscreen noremoteplayback"
+      tabindex="-1"
+    >
       <source
         src="./snaptik_7635695229902802198_v3.mp4"
-        type="video/mp4">
+        type="video/mp4"
+      >
     </video>
   </div>
-  <div class="main-area">
-    <!-- PROFILE -->
-    <aside class="profile">
-      <div class="profile-frame">
-        <img
-          src="./IMG_7790.jpeg"
-          alt="Mizuki">
-      </div>
+  <!-- ===================================================
+       PROFILE
+  ==================================================== -->
+  <section class="profile">
+    <img
+      class="profile-image"
+      src="./IMG_7790.jpeg"
+      alt="Mizuki"
+    >
+    <div class="profile-info">
       <h1 class="profile-name">
         Mizuki
       </h1>
-      <!-- DECORATIVE LINE UNDER MIZUKI -->
-      <div class="title-decoration" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <!-- SMALL PLAYLIST -->
-      <div class="music-player">
-        <p class="music-caption">
-          if u're bored, just listen to my playlist ♡
-        </p>
-        <div class="spotify-box">
-          <iframe
-            class="spotify-frame"
-            src="https://open.spotify.com/embed/playlist/4TpVXAQdCxZfZNg83WA52t?utm_source=generator"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Mizuki Spotify Playlist">
-          </iframe>
-        </div>
-        <div
-          class="music-wave"
-          aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </aside>
-    <!-- CONTENT -->
-    <main class="content">
-      <h2 class="content-title">
+      <p class="profile-handle">
         kllurself.ut
-      </h2>
-      <!-- DECORATIVE LINE UNDER KLLURSELF.UT -->
-      <div class="title-decoration" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="flower-divider">
-        ✿ ♡ ✿
-      </div>
-      <div class="thought-card">
-        <p class="thought-card-text">
-          Do you miss me Linda?
-        </p>
-      </div>
-    </main>
+      </p>
+      <p class="profile-subtitle">
+        ♡ my little thoughts ♡
+      </p>
+    </div>
+  </section>
+  <!-- ===================================================
+       DIVIDER
+  ==================================================== -->
+  <div class="divider">
+    ✿ ♡ ✿
   </div>
-</div>
-<script>
-/* Keep the top video playing */
-const topVideo =
-  document.getElementById("topVideo");
-setInterval(() => {
-  if(topVideo && topVideo.paused){
-    topVideo.play().catch(() => {});
+  <!-- ===================================================
+       CONTENT
+  ==================================================== -->
+  <section class="content">
+    <h2 class="thought-title">
+      Thought
+    </h2>
+    <!-- =================================================
+         FIRESTORE POSTS APPEAR HERE
+    ================================================== -->
+    <div id="thoughts">
+      <div class="loading">
+        loading thoughts... ♡
+      </div>
+    </div>
+    <!-- =================================================
+         SPOTIFY
+    ================================================== -->
+    <div class="spotify">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/4TpVXAQdCxZfZNg83WA52t?utm_source=generator"
+        allow="
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          fullscreen;
+          picture-in-picture
+        "
+        loading="lazy"
+      ></iframe>
+      <p class="spotify-caption">
+        if u're bored, just listen to my playlist ♡
+      </p>
+    </div>
+  </section>
+</main>
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+<script type="module">
+import {
+  initializeApp
+}
+from
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import {
+  getFirestore,
+  collection,
+  query,
+  orderBy,
+  onSnapshot
+}
+from
+'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+const firebaseConfig = {
+  apiKey:
+    "AIzaSyDL5KlmnirvhpTr6rhnKRKpQncRl6gfLXk",
+  authDomain:
+    "rainyren-4f684.firebaseapp.com",
+  projectId:
+    "rainyren-4f684",
+  storageBucket:
+    "rainyren-4f684.appspot.com",
+  messagingSenderId:
+    "804536782078",
+  appId:
+    "1:804536782078:web:f70657a0abaa9809e169af",
+  measurementId:
+    "G-KWQS2SQ308"
+};
+/* =====================================================
+   INITIALIZE
+===================================================== */
+const app =
+  initializeApp(firebaseConfig);
+const db =
+  getFirestore(app);
+/* =====================================================
+   POSTS CONTAINER
+===================================================== */
+const thoughts =
+  document.getElementById('thoughts');
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+function formatDate(timestamp){
+  if(!timestamp){
+    return '';
   }
-},500);
+  const date =
+    timestamp.toDate();
+  return date.toLocaleString(
+    'th-TH',
+    {
+      year:'numeric',
+      month:'short',
+      day:'numeric',
+      hour:'2-digit',
+      minute:'2-digit'
+    }
+  );
+}
+/* =====================================================
+   CREATE POST CARD
+===================================================== */
+function createPost(post){
+  const card =
+    document.createElement('article');
+  card.className =
+    'thought-card';
+  const text =
+    document.createElement('div');
+  /*
+    ใช้ textContent
+    เพื่อป้องกัน HTML แปลก ๆ
+    จากข้อความที่ถูกเขียนใน Admin
+  */
+  text.textContent =
+    post.text || '';
+  card.appendChild(text);
+  if(post.createdAt){
+    const date =
+      document.createElement('span');
+    date.className =
+      'post-date';
+    date.textContent =
+      formatDate(post.createdAt);
+    card.appendChild(date);
+  }
+  return card;
+}
+/* =====================================================
+   REALTIME FIRESTORE
+===================================================== */
+const postsQuery =
+  query(
+    collection(db, 'thoughts'),
+    orderBy('createdAt', 'desc')
+  );
+onSnapshot(
+  postsQuery,
+  (snapshot) => {
+    thoughts.innerHTML = '';
+    if(snapshot.empty){
+      const empty =
+        document.createElement('div');
+      empty.className =
+        'empty';
+      empty.textContent =
+        'ยังไม่มี thoughts ♡';
+      thoughts.appendChild(empty);
+      return;
+    }
+    snapshot.forEach(
+      (doc) => {
+        const post =
+          doc.data();
+        thoughts.appendChild(
+          createPost(post)
+        );
+      }
+    );
+  },
+  (error) => {
+    console.error(
+      'Firestore error:',
+      error
+    );
+    thoughts.innerHTML = '';
+    const errorMessage =
+      document.createElement('div');
+    errorMessage.className =
+      'empty';
+    errorMessage.textContent =
+      'ไม่สามารถโหลด thoughts ได้ ♡';
+    thoughts.appendChild(
+      errorMessage
+    );
+  }
+);
+/* =====================================================
+   KEEP VIDEO PLAYING
+===================================================== */
+const video =
+  document.querySelector('.video-box video');
+function keepVideoPlaying(){
+  if(video && video.paused){
+    video.play().catch(
+      () => {}
+    );
+  }
+}
+if(video){
+  video.addEventListener(
+    'pause',
+    keepVideoPlaying
+  );
+  video.addEventListener(
+    'ended',
+    () => {
+      video.currentTime = 0;
+      keepVideoPlaying();
+    }
+  );
+  video.play().catch(
+    () => {}
+  );
+}
 </script>
 </body>
 </html>
