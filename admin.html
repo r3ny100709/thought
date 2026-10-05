@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thought — Admin</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+}
+
+body{
+  background:#f9dce8;
+  color:#9b687d;
+  font-family:"Baloo 2","Itim",sans-serif;
+}
+
+.page{
+  width:min(760px,92%);
+  margin:30px auto 60px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  background:#fff;
+  border-radius:28px;
+  padding:26px 28px;
+  box-shadow:
+    0 10px 25px rgba(170,95,125,.10),
+    0 2px 7px rgba(170,95,125,.05);
+  position:relative;
+}
+
+.header::before{
+  content:"🎀";
+  position:absolute;
+  top:12px;
+  left:16px;
+  font-size:22px;
+}
+
+.header::after{
+  content:"🌸";
+  position:absolute;
+  right:16px;
+  bottom:12px;
+  font-size:19px;
+  opacity:.65;
+}
+
+.title{
+  margin:0;
+  text-align:center;
+  font-family:"Itim","Baloo 2",sans-serif;
+  color:#a66f83;
+  font-size:2rem;
+}
+
+.subtitle{
+  margin:4px 0 0;
+  text-align:center;
+  color:#c48aa0;
+  font-size:.9rem;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-box{
+  margin-top:20px;
+  background:#fff;
+  border-radius:25px;
+  padding:26px;
+  box-shadow:
+    0 10px 25px rgba(170,95,125,.10);
+}
+
+.login-box h2{
+  margin:0 0 18px;
+  font-family:"Itim","Baloo 2",sans-serif;
+  color:#a66f83;
+  text-align:center;
+}
+
+.input{
+  width:100%;
+  padding:13px 15px;
+  margin-bottom:12px;
+  border:0;
+  outline:none;
+  border-radius:15px;
+  background:#fff0f5;
+  color:#9b687d;
+  font-family:inherit;
+  font-size:.95rem;
+}
+
+.input:focus{
+  box-shadow:0 0 0 2px #f2b8ce;
+}
+
+.button{
+  width:100%;
+  border:0;
+  border-radius:15px;
+  padding:13px 18px;
+  background:#d45b89;
+  color:#fff;
+  font-family:"Itim","Baloo 2",sans-serif;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.button:hover{
+  transform:translateY(-1px);
+  opacity:.9;
+}
+
+.message{
+  margin:12px 0 0;
+  text-align:center;
+  font-size:.85rem;
+  color:#c05b82;
+}
+
+/* =========================
+   ADMIN AREA
+========================= */
+
+.admin-area{
+  display:none;
+  margin-top:20px;
+}
+
+.write-box{
+  background:#fff;
+  border-radius:25px;
+  padding:26px;
+  box-shadow:
+    0 10px 25px rgba(170,95,125,.10);
+}
+
+.write-title{
+  margin:0 0 14px;
+  font-family:"Itim","Baloo 2",sans-serif;
+  color:#a66f83;
+  font-size:1.35rem;
+}
+
+textarea{
+  width:100%;
+  min-height:180px;
+  resize:vertical;
+  border:0;
+  outline:none;
+  border-radius:18px;
+  padding:17px;
+  background:#fff0f5;
+  color:#9b687d;
+  font-family:"Itim","Baloo 2",sans-serif;
+  font-size:1rem;
+  line-height:1.7;
+}
+
+textarea:focus{
+  box-shadow:0 0 0 2px #f2b8ce;
+}
+
+.publish{
+  margin-top:13px;
+}
+
+/* =========================
+   POSTS
+========================= */
+
+.posts{
+  margin-top:20px;
+}
+
+.posts-title{
+  margin:0 0 12px;
+  font-family:"Itim","Baloo 2",sans-serif;
+  color:#a66f83;
+}
+
+.post{
+  background:#fff;
+  border-radius:22px;
+  padding:20px;
+  margin-bottom:14px;
+  box-shadow:
+    0 8px 20px rgba(170,95,125,.08);
+}
+
+.post-date{
+  font-size:.72rem;
+  color:#c48aa0;
+  margin-bottom:7px;
+}
+
+.post-text{
+  white-space:pre-wrap;
+  color:#a66f83;
+  font-family:"Itim","Baloo 2",sans-serif;
+  font-size:1rem;
+  line-height:1.7;
+}
+
+.post-actions{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+}
+
+.small-button{
+  border:0;
+  border-radius:12px;
+  padding:8px 14px;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.edit-button{
+  background:#f8d8e5;
+  color:#a66f83;
+}
+
+.delete-button{
+  background:#f2b7c9;
+  color:#8e5069;
+}
+
+.logout{
+  margin-top:14px;
+  background:#fff;
+  color:#a66f83;
+  box-shadow:inset 0 0 0 1px #f0c5d5;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+  .page{
+    width:92%;
+    margin-top:18px;
+  }
+
+  .header{
+    padding:23px 20px;
+    border-radius:24px;
+  }
+
+  .title{
+    font-size:1.7rem;
+  }
+
+  .login-box,
+  .write-box{
+    padding:21px;
+    border-radius:22px;
+  }
+
+  textarea{
+    min-height:160px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <section class="header">
+    <h1 class="title">Thought Admin</h1>
+    <p class="subtitle">write something whenever you want ♡</p>
+  </section>
+
+  <!-- LOGIN -->
+  <section class="login-box" id="loginBox">
+
+    <h2>♡ Login</h2>
+
+    <input
+      class="input"
+      id="email"
+      type="email"
+      placeholder="Email">
+
+    <input
+      class="input"
+      id="password"
+      type="password"
+      placeholder="Password">
+
+    <button
+      class="button"
+      id="loginButton">
+      Login ♡
+    </button>
+
+    <p
+      class="message"
+      id="loginMessage">
+    </p>
+
+  </section>
+
+  <!-- ADMIN -->
+  <section class="admin-area" id="adminArea">
+
+    <div class="write-box">
+
+      <h2 class="write-title">
+        Write a thought ♡
+      </h2>
+
+      <textarea
+        id="thoughtInput"
+        placeholder="write whatever is on your mind..."></textarea>
+
+      <button
+        class="button publish"
+        id="publishButton">
+        Publish ♡
+      </button>
+
+      <p
+        class="message"
+        id="publishMessage">
+      </p>
+
+      <button
+        class="button logout"
+        id="logoutButton">
+        Logout
+      </button>
+
+    </div>
+
+    <div class="posts">
+
+      <h2 class="posts-title">
+        Your thoughts
+      </h2>
+
+      <div id="postsList"></div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script type="module">
+
+/* =========================
+   FIREBASE
+========================= */
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  doc,
+  updateDoc,
+  deleteDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDL5KlmnirvhpTr6rhnKRKpQncRl6gfLXk",
+  authDomain: "rainyren-4f684.firebaseapp.com",
+  projectId: "rainyren-4f684",
+  storageBucket: "rainyren-4f684.appspot.com",
+  messagingSenderId: "804536782078",
+  appId: "1:804536782078:web:f70657a0abaa9809e169af",
+  measurementId: "G-KWQS2SQ308"
+};
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const loginBox =
+  document.getElementById("loginBox");
+
+const adminArea =
+  document.getElementById("adminArea");
+
+const emailInput =
+  document.getElementById("email");
+
+const passwordInput =
+  document.getElementById("password");
+
+const loginButton =
+  document.getElementById("loginButton");
+
+const loginMessage =
+  document.getElementById("loginMessage");
+
+const thoughtInput =
+  document.getElementById("thoughtInput");
+
+const publishButton =
+  document.getElementById("publishButton");
+
+const publishMessage =
+  document.getElementById("publishMessage");
+
+const logoutButton =
+  document.getElementById("logoutButton");
+
+const postsList =
+  document.getElementById("postsList");
+
+
+/* =========================
+   LOGIN
+========================= */
+
+loginButton.addEventListener(
+  "click",
+  async () => {
+
+    const email =
+      emailInput.value.trim();
+
+    const password =
+      passwordInput.value;
+
+    if(!email || !password){
+
+      loginMessage.textContent =
+        "Please enter your email and password.";
+
+      return;
+    }
+
+    loginMessage.textContent =
+      "Logging in...";
+
+    try{
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      loginMessage.textContent = "";
+
+    }catch(error){
+
+      loginMessage.textContent =
+        "Login failed. Please check your email and password.";
+
+      console.error(error);
+    }
+
+  }
+);
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(
+  auth,
+  async (user) => {
+
+    if(user){
+
+      /*
+        Extra protection:
+        only your UID can use the admin page.
+      */
+
+      if(
+        user.uid !==
+        "Lkmx693TXZNME9wpAywVVjnOqg73"
+      ){
+
+        await signOut(auth);
+
+        loginMessage.textContent =
+          "This account is not allowed.";
+
+        return;
+      }
+
+      loginBox.style.display =
+        "none";
+
+      adminArea.style.display =
+        "block";
+
+      await loadPosts();
+
+    }else{
+
+      loginBox.style.display =
+        "block";
+
+      adminArea.style.display =
+        "none";
+    }
+
+  }
+);
+
+
+/* =========================
+   PUBLISH
+========================= */
+
+publishButton.addEventListener(
+  "click",
+  async () => {
+
+    const text =
+      thoughtInput.value.trim();
+
+    if(!text){
+
+      publishMessage.textContent =
+        "Write something first ♡";
+
+      return;
+    }
+
+    publishMessage.textContent =
+      "Publishing...";
+
+    try{
+
+      await addDoc(
+        collection(db,"thoughts"),
+        {
+          text:text,
+          createdAt:serverTimestamp()
+        }
+      );
+
+      thoughtInput.value = "";
+
+      publishMessage.textContent =
+        "Published ♡";
+
+      await loadPosts();
+
+    }catch(error){
+
+      console.error(error);
+
+      publishMessage.textContent =
+        "Something went wrong.";
+    }
+
+  }
+);
+
+
+/* =========================
+   LOAD POSTS
+========================= */
+
+async function loadPosts(){
+
+  postsList.innerHTML =
+    "<p>Loading...</p>";
+
+  try{
+
+    const q =
+      query(
+        collection(db,"thoughts"),
+        orderBy("createdAt","desc")
+      );
+
+    const snapshot =
+      await getDocs(q);
+
+    postsList.innerHTML = "";
+
+    if(snapshot.empty){
+
+      postsList.innerHTML =
+        "<p>No thoughts yet ♡</p>";
+
+      return;
+    }
+
+    snapshot.forEach(
+      (item) => {
+
+        const data =
+          item.data();
+
+        const post =
+          document.createElement("div");
+
+        post.className =
+          "post";
+
+        const date =
+          data.createdAt
+            ? data.createdAt
+                .toDate()
+                .toLocaleString()
+            : "Just now";
+
+        post.innerHTML = `
+          <div class="post-date">
+            ${date}
+          </div>
+
+          <div class="post-text">
+            ${escapeHtml(data.text)}
+          </div>
+
+          <div class="post-actions">
+
+            <button
+              class="small-button edit-button">
+              Edit
+            </button>
+
+            <button
+              class="small-button delete-button">
+              Delete
+            </button>
+
+          </div>
+        `;
+
+        post
+          .querySelector(".edit-button")
+          .addEventListener(
+            "click",
+            () => editPost(
+              item.id,
+              data.text
+            )
+          );
+
+        post
+          .querySelector(".delete-button")
+          .addEventListener(
+            "click",
+            () => deletePost(item.id)
+          );
+
+        postsList.appendChild(post);
+      }
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    postsList.innerHTML =
+      "<p>Could not load posts.</p>";
+  }
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+async function editPost(
+  id,
+  oldText
+){
+
+  const newText =
+    prompt(
+      "Edit your thought:",
+      oldText
+    );
+
+  if(
+    newText === null ||
+    !newText.trim()
+  ){
+    return;
+  }
+
+  try{
+
+    await updateDoc(
+      doc(db,"thoughts",id),
+      {
+        text:newText.trim()
+      }
+    );
+
+    await loadPosts();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Could not update this thought."
+    );
+  }
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+async function deletePost(id){
+
+  const confirmDelete =
+    confirm(
+      "Delete this thought?"
+    );
+
+  if(!confirmDelete){
+    return;
+  }
+
+  try{
+
+    await deleteDoc(
+      doc(db,"thoughts",id)
+    );
+
+    await loadPosts();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Could not delete this thought."
+    );
+  }
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+logoutButton.addEventListener(
+  "click",
+  async () => {
+
+    await signOut(auth);
+
+  }
+);
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(text){
+
+  const div =
+    document.createElement("div");
+
+  div.textContent =
+    text;
+
+  return div.innerHTML;
+}
+
+</script>
+
+</body>
+</html>
