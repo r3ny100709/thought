@@ -67,13 +67,11 @@ body{
     #f9d9e7
   );
   border-radius:28px;
-  /* no border */
   border:none;
   box-shadow:
     0 10px 25px rgba(170,95,125,.10),
     0 2px 7px rgba(170,95,125,.05);
 }
-/* cute decorations */
 .profile::before{
   content:"🎀";
   position:absolute;
@@ -114,6 +112,44 @@ body{
   font-size:1.65rem;
   color:#a56d83;
   line-height:1.2;
+}
+/* =========================
+   DECORATIVE LINES
+========================= */
+.title-decoration{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  height:10px;
+  margin:6px auto 3px;
+}
+.title-decoration span{
+  display:block;
+  height:3px;
+  border-radius:20px;
+  background:#d45b89;
+  box-shadow:
+    0 1px 3px rgba(180,70,115,.15);
+}
+.title-decoration span:nth-child(1){
+  width:12px;
+  opacity:.55;
+}
+.title-decoration span:nth-child(2){
+  width:28px;
+  opacity:.8;
+}
+.title-decoration span:nth-child(3){
+  width:42px;
+}
+.title-decoration span:nth-child(4){
+  width:18px;
+  opacity:.7;
+}
+.title-decoration span:nth-child(5){
+  width:8px;
+  opacity:.5;
 }
 /* =========================
    SMALL SPOTIFY PLAYER
@@ -165,43 +201,43 @@ body{
 }
 .music-wave span:nth-child(1){
   height:5px;
-  animation-delay:.05s
+  animation-delay:.05s;
 }
 .music-wave span:nth-child(2){
   height:9px;
-  animation-delay:.15s
+  animation-delay:.15s;
 }
 .music-wave span:nth-child(3){
   height:13px;
-  animation-delay:.25s
+  animation-delay:.25s;
 }
 .music-wave span:nth-child(4){
   height:7px;
-  animation-delay:.35s
+  animation-delay:.35s;
 }
 .music-wave span:nth-child(5){
   height:11px;
-  animation-delay:.45s
+  animation-delay:.45s;
 }
 .music-wave span:nth-child(6){
   height:5px;
-  animation-delay:.55s
+  animation-delay:.55s;
 }
 .music-wave span:nth-child(7){
   height:14px;
-  animation-delay:.65s
+  animation-delay:.65s;
 }
 .music-wave span:nth-child(8){
   height:8px;
-  animation-delay:.75s
+  animation-delay:.75s;
 }
 .music-wave span:nth-child(9){
   height:12px;
-  animation-delay:.85s
+  animation-delay:.85s;
 }
 .music-wave span:nth-child(10){
   height:6px;
-  animation-delay:.95s
+  animation-delay:.95s;
 }
 @keyframes wave{
   0%,100%{
@@ -224,13 +260,11 @@ body{
     #f9dce8
   );
   border-radius:28px;
-  /* no border */
   border:none;
   box-shadow:
     0 10px 25px rgba(170,95,125,.10),
     0 2px 7px rgba(170,95,125,.05);
 }
-/* cute decorations */
 .content::before{
   content:"🌷";
   position:absolute;
@@ -255,6 +289,9 @@ body{
   color:#a66f83;
   line-height:1.15;
 }
+/* =========================
+   FLOWER DIVIDER
+========================= */
 .flower-divider{
   margin-top:7px;
   font-size:1rem;
@@ -338,6 +375,24 @@ body{
   .profile-name{
     font-size:1.45rem;
   }
+  .title-decoration{
+    margin-top:5px;
+  }
+  .title-decoration span:nth-child(1){
+    width:9px;
+  }
+  .title-decoration span:nth-child(2){
+    width:22px;
+  }
+  .title-decoration span:nth-child(3){
+    width:34px;
+  }
+  .title-decoration span:nth-child(4){
+    width:15px;
+  }
+  .title-decoration span:nth-child(5){
+    width:6px;
+  }
   .music-player{
     max-width:205px;
   }
@@ -355,6 +410,9 @@ body{
   }
   .content-title{
     font-size:1.7rem;
+  }
+  .content .title-decoration{
+    justify-content:flex-start;
   }
   .thought-card{
     margin-top:20px;
@@ -399,6 +457,14 @@ body{
       <h1 class="profile-name">
         Mizuki
       </h1>
+      <!-- DECORATIVE LINE UNDER MIZUKI -->
+      <div class="title-decoration" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <!-- SMALL PLAYLIST -->
       <div class="music-player">
         <p class="music-caption">
@@ -434,6 +500,14 @@ body{
       <h2 class="content-title">
         kllurself.ut
       </h2>
+      <!-- DECORATIVE LINE UNDER KLLURSELF.UT -->
+      <div class="title-decoration" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <div class="flower-divider">
         ✿ ♡ ✿
       </div>
