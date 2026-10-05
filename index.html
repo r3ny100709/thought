@@ -10,10 +10,10 @@
   content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
-<title>Mizuki</title>
+<title>Thought</title>
 
 <link
-  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Itim&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;700&display=swap"
   rel="stylesheet"
 >
 
@@ -30,61 +30,24 @@
 html,
 body{
   margin:0;
+  padding:0;
+  width:100%;
   min-height:100%;
 }
 
 body{
 
-  background:#f8dce8;
+  background:#f8dce7;
 
-  color:#765565;
+  color:#5c4050;
 
   font-family:
-    'Baloo 2',
-    'Itim',
+    'Mali',
+    'Sarabun',
+    'Noto Sans Thai',
     sans-serif;
 
   overflow-x:hidden;
-
-}
-
-
-/* =====================================================
-   DECORATIONS
-===================================================== */
-
-.flower{
-
-  position:fixed;
-
-  pointer-events:none;
-
-  z-index:0;
-
-  opacity:.45;
-
-  font-size:27px;
-
-}
-
-.flower.one{
-  top:6%;
-  left:3%;
-}
-
-.flower.two{
-  top:35%;
-  right:3%;
-}
-
-.flower.three{
-  bottom:13%;
-  left:4%;
-}
-
-.flower.four{
-  bottom:4%;
-  right:5%;
 }
 
 
@@ -94,20 +57,13 @@ body{
 
 .page{
 
-  position:relative;
-
-  z-index:1;
-
   width:100%;
 
-  max-width:900px;
+  min-height:100vh;
 
-  margin:0 auto;
+  margin:0;
 
-  padding:
-    0
-    0
-    45px;
+  padding:0;
 
 }
 
@@ -120,21 +76,16 @@ body{
 
   width:100%;
 
-  height:240px;
+  margin:0;
+
+  padding:0;
 
   overflow:hidden;
 
-  background:#fff;
+  background:#000;
 
   border-radius:
-    0
-    0
-    28px
-    28px;
-
-  box-shadow:
-    0 10px 30px
-    rgba(153,87,115,.18);
+    0 0 18px 18px;
 
 }
 
@@ -145,9 +96,14 @@ body{
 
   width:100%;
 
-  height:100%;
+  height:240px;
 
   object-fit:cover;
+
+  border:0;
+
+  border-radius:
+    0 0 18px 18px;
 
   pointer-events:none;
 
@@ -158,15 +114,16 @@ body{
   -webkit-touch-callout:none;
 
   -webkit-user-drag:none;
-
 }
 
 
 /* =====================================================
-   TWO MAIN BOXES
+   WORKSPACE
 ===================================================== */
 
 .workspace{
+
+  width:100%;
 
   display:grid;
 
@@ -174,33 +131,36 @@ body{
     240px
     minmax(0,1fr);
 
-  gap:15px;
+  gap:16px;
 
-  padding:
-    16px;
+  padding:16px;
 
 }
 
 
 /* =====================================================
-   LARGE PROFILE BOX
+   PROFILE BOX
 ===================================================== */
 
 .profile-box{
 
+  width:100%;
+
   min-height:430px;
 
-  padding:
-    24px
-    18px;
+  padding:28px 18px;
 
   background:#fff;
 
-  border-radius:28px;
+  border-radius:24px;
+
+  border:
+    1px solid
+    rgba(240,145,175,.35);
 
   box-shadow:
-    0 9px 30px
-    rgba(145,79,108,.14);
+    0 8px 25px
+    rgba(145,70,100,.08);
 
   display:flex;
 
@@ -208,14 +168,13 @@ body{
 
   align-items:center;
 
-  justify-content:center;
+  justify-content:flex-start;
 
   text-align:center;
-
 }
 
 
-.profile-image-large{
+.profile-box img{
 
   width:155px;
 
@@ -225,46 +184,37 @@ body{
 
   border-radius:50%;
 
+  margin-bottom:18px;
+
   border:
     5px solid
-    #fff;
+    #f8dce7;
 
   box-shadow:
-    0 8px 25px
-    rgba(145,79,108,.22);
-
+    0 5px 18px
+    rgba(200,100,140,.18);
 }
 
 
-.profile-name-large{
+.profile-box h1{
 
-  margin:
-    17px 0 0;
+  margin:0 0 5px;
 
-  color:#765064;
-
-  font-size:2rem;
-
-  line-height:1;
+  font-size:1.7rem;
 
   font-weight:700;
 
+  color:#654354;
 }
 
 
-.profile-ig-large{
+.profile-box .ig{
 
-  margin:
-    8px 0 0;
-
-  color:#ad788d;
-
-  font-family:
-    'Itim',
-    sans-serif;
+  margin:0;
 
   font-size:.9rem;
 
+  color:#ad7d91;
 }
 
 
@@ -274,25 +224,27 @@ body{
 
 .chat-box{
 
-  min-height:430px;
+  width:100%;
 
-  padding:
-    18px;
+  min-height:430px;
 
   background:#fff;
 
-  border-radius:28px;
+  border-radius:24px;
+
+  border:
+    1px solid
+    rgba(240,145,175,.35);
 
   box-shadow:
-    0 9px 30px
-    rgba(145,79,108,.14);
+    0 8px 25px
+    rgba(145,70,100,.08);
+
+  overflow:hidden;
 
   display:flex;
 
   flex-direction:column;
-
-  min-width:0;
-
 }
 
 
@@ -300,7 +252,7 @@ body{
    CHAT HEADER
 ===================================================== */
 
-.chat-profile{
+.chat-header{
 
   display:flex;
 
@@ -308,22 +260,21 @@ body{
 
   gap:10px;
 
-  padding-bottom:13px;
+  padding:16px 20px;
 
   border-bottom:
     1px solid
-    #f2d8e3;
+    #f5dbe4;
 
+  background:#fff;
 }
 
 
-.chat-profile-image{
+.chat-header img{
 
-  width:45px;
+  width:42px;
 
-  height:45px;
-
-  flex-shrink:0;
+  height:42px;
 
   object-fit:cover;
 
@@ -331,107 +282,86 @@ body{
 
   border:
     2px solid
-    #fff;
-
-  box-shadow:
-    0 3px 10px
-    rgba(145,79,108,.16);
-
+    #f4c5d5;
 }
 
 
-.chat-profile-info{
-
-  min-width:0;
-
-}
-
-
-.chat-profile-name{
-
-  margin:0;
-
-  color:#765064;
-
-  font-size:1.08rem;
-
-  font-weight:700;
-
-  line-height:1;
-
-}
-
-
-.chat-profile-ig{
-
-  margin:
-    3px 0 0;
-
-  color:#b18395;
-
-  font-family:
-    'Itim',
-    sans-serif;
-
-  font-size:.72rem;
-
-}
-
-
-/* =====================================================
-   MESSAGES
-===================================================== */
-
-#thoughts{
+.chat-header-text{
 
   display:flex;
 
   flex-direction:column;
 
-  align-items:flex-start;
+  line-height:1.25;
+}
 
-  gap:13px;
+
+.chat-header-text strong{
+
+  font-size:1rem;
+
+  color:#624354;
+}
+
+
+.chat-header-text span{
+
+  font-size:.75rem;
+
+  color:#b28a9a;
+}
+
+
+/* =====================================================
+   THOUGHTS AREA
+===================================================== */
+
+#thoughts{
 
   flex:1;
 
-  min-width:0;
+  padding:20px;
 
-  padding-top:16px;
+  display:flex;
 
+  flex-direction:column;
+
+  gap:18px;
+
+  overflow-y:auto;
 }
 
 
 /* =====================================================
    MESSAGE ROW
-   รูปโปรไฟล์ + bubble
 ===================================================== */
 
 .message-row{
 
   display:flex;
 
-  align-items:flex-end;
+  align-items:flex-start;
 
-  gap:8px;
+  gap:9px;
 
   width:100%;
-
-  min-width:0;
-
 }
 
 
 /* =====================================================
-   SMALL PROFILE BESIDE EACH MESSAGE
+   MESSAGE AVATAR
 ===================================================== */
 
 .message-avatar{
+
+  flex:
+    0 0 34px;
 
   width:34px;
 
   height:34px;
 
-  flex-shrink:0;
+  margin-top:3px;
 
   object-fit:cover;
 
@@ -439,67 +369,58 @@ body{
 
   border:
     2px solid
-    #fff;
+    #f4c5d5;
 
   box-shadow:
-    0 3px 8px
-    rgba(145,79,108,.15);
-
+    0 2px 6px
+    rgba(180,90,125,.12);
 }
 
 
 /* =====================================================
-   MESSAGE BUBBLE
+   THOUGHT CARD
 ===================================================== */
 
 .thought-card{
 
   position:relative;
 
-  width:fit-content;
-
-  max-width:calc(100% - 42px);
+  max-width:
+    min(78%, 620px);
 
   padding:
-    9px
-    13px;
+    13px
+    16px
+    10px;
 
-  background:#f9d9e7;
+  background:#f8dce7;
 
   border:
     1px solid
-    #efbfd2;
+    #efbfd0;
 
   border-radius:
-    7px
-    17px
-    17px
-    17px;
+    4px
+    18px
+    18px
+    18px;
 
-  color:#765565;
+  color:#624354;
 
-  font-family:
-    'Itim',
-    'Baloo 2',
-    sans-serif;
+  font-size:.95rem;
 
-  font-size:1.04rem;
-
-  line-height:1.5;
+  line-height:1.65;
 
   word-break:break-word;
 
-  white-space:pre-wrap;
-
   box-shadow:
-    0 3px 9px
-    rgba(180,95,130,.07);
-
+    0 3px 10px
+    rgba(180,90,125,.06);
 }
 
 
 /* =====================================================
-   CHAT TAIL
+   CHAT BUBBLE TAIL
 ===================================================== */
 
 .thought-card::before{
@@ -508,23 +429,26 @@ body{
 
   position:absolute;
 
-  top:-1px;
+  left:-7px;
 
-  left:-6px;
+  top:10px;
 
-  width:10px;
+  width:13px;
 
-  height:10px;
+  height:13px;
 
-  background:#f9d9e7;
+  background:#f8dce7;
 
   border-left:
     1px solid
-    #efbfd2;
+    #efbfd0;
+
+  border-bottom:
+    1px solid
+    #efbfd0;
 
   transform:
-    skewX(-28deg);
-
+    rotate(45deg);
 }
 
 
@@ -532,50 +456,35 @@ body{
    DATE
 ===================================================== */
 
-.post-date{
+.thought-date{
 
   display:block;
 
-  margin-top:3px;
+  margin-top:7px;
 
-  color:#bd8da0;
+  font-size:.68rem;
 
-  font-family:
-    'Baloo 2',
-    sans-serif;
-
-  font-size:.6rem;
+  color:#b78b9c;
 
   text-align:right;
-
-  opacity:.6;
-
 }
 
 
 /* =====================================================
-   LOADING / EMPTY
+   EMPTY
 ===================================================== */
 
-.loading,
 .empty{
 
   width:100%;
 
-  padding:
-    20px
-    4px;
+  padding:35px 15px;
 
   text-align:center;
 
-  color:#b78396;
+  color:#c09aaa;
 
-  font-family:
-    'Itim',
-    sans-serif;
-
-  font-size:.95rem;
-
+  font-size:.9rem;
 }
 
 
@@ -583,107 +492,78 @@ body{
    MOBILE
 ===================================================== */
 
-@media(max-width:620px){
+@media (max-width:700px){
 
-  .page{
+  .video-box{
 
-    padding-bottom:30px;
+    border-radius:
+      0 0 14px 14px;
 
   }
 
-
-  .video-box{
+  .video-box video{
 
     height:210px;
 
     border-radius:
-      0
-      0
-      23px
-      23px;
+      0 0 14px 14px;
 
   }
 
 
   .workspace{
 
-    grid-template-columns:1fr;
+    display:flex;
 
-    gap:12px;
+    flex-direction:column;
 
-    padding:
-      12px 9px;
+    gap:14px;
+
+    padding:14px;
 
   }
 
 
   .profile-box{
 
-    min-height:205px;
+    min-height:auto;
 
-    padding:18px;
-
-    flex-direction:row;
-
-    justify-content:flex-start;
-
-    gap:16px;
-
-    text-align:left;
+    padding:25px 18px;
 
   }
 
 
-  .profile-image-large{
+  .profile-box img{
 
-    width:105px;
+    width:135px;
 
-    height:105px;
-
-  }
-
-
-  .profile-name-large{
-
-    margin:0;
-
-    font-size:1.65rem;
-
-  }
-
-
-  .profile-ig-large{
-
-    margin-top:7px;
-
-    font-size:.78rem;
+    height:135px;
 
   }
 
 
   .chat-box{
 
-    min-height:380px;
+    min-height:500px;
 
-    padding:15px;
+    border-radius:22px;
 
   }
 
 
-  .message-avatar{
+  #thoughts{
 
-    width:31px;
-
-    height:31px;
+    padding:16px;
 
   }
 
 
   .thought-card{
 
-    max-width:calc(100% - 40px);
+    max-width:
+      calc(100% - 5px);
 
-    font-size:1rem;
+    font-size:.9rem;
 
   }
 
@@ -691,77 +571,32 @@ body{
 
 
 /* =====================================================
-   SMALL PHONE
+   VERY SMALL SCREEN
 ===================================================== */
 
-@media(max-width:380px){
+@media (max-width:380px){
 
-  .video-box{
+  .workspace{
 
-    height:180px;
+    padding:10px;
 
   }
-
 
   .profile-box{
 
-    min-height:180px;
+    border-radius:20px;
 
   }
-
-
-  .profile-image-large{
-
-    width:85px;
-
-    height:85px;
-
-  }
-
-
-  .profile-name-large{
-
-    font-size:1.45rem;
-
-  }
-
-
-  .profile-ig-large{
-
-    font-size:.7rem;
-
-  }
-
 
   .chat-box{
 
-    min-height:350px;
+    border-radius:20px;
 
   }
 
+  #thoughts{
 
-  .thought-card{
-
-    font-size:.92rem;
-
-  }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-  *{
-
-    scroll-behavior:auto !important;
-
-    transition:none !important;
-
-    animation:none !important;
+    padding:13px;
 
   }
 
@@ -775,16 +610,6 @@ body{
 <body>
 
 
-<!-- =====================================================
-     DECORATIONS
-===================================================== -->
-
-<div class="flower one">🌷</div>
-<div class="flower two">🌸</div>
-<div class="flower three">🎀</div>
-<div class="flower four">🌷</div>
-
-
 <main class="page">
 
 
@@ -795,6 +620,7 @@ body{
   <div class="video-box">
 
     <video
+      id="thoughtVideo"
       autoplay
       muted
       loop
@@ -817,77 +643,71 @@ body{
 
 
   <!-- ===================================================
-       MAIN WORKSPACE
+       PROFILE + CHAT
   ==================================================== -->
 
   <section class="workspace">
 
 
-    <!-- ===============================================
-         LARGE PROFILE BOX
-    ================================================ -->
+    <!-- =================================================
+         PROFILE
+    ================================================== -->
 
     <aside class="profile-box">
 
       <img
-        class="profile-image-large"
         src="./IMG_7790.jpeg"
         alt="Mizuki"
       >
 
-      <div>
+      <h1>
+        Mizuki
+      </h1>
 
-        <h1 class="profile-name-large">
-          Mizuki
-        </h1>
-
-        <p class="profile-ig-large">
-          IG: kllurself.ut
-        </p>
-
-      </div>
+      <p class="ig">
+        IG: kllurself.ut
+      </p>
 
     </aside>
 
 
-    <!-- ===============================================
-         CHAT BOX
-    ================================================ -->
+    <!-- =================================================
+         CHAT
+    ================================================== -->
 
     <section class="chat-box">
 
 
-      <!-- CHAT HEADER -->
+      <!-- HEADER -->
 
-      <div class="chat-profile">
+      <header class="chat-header">
 
         <img
-          class="chat-profile-image"
           src="./IMG_7790.jpeg"
           alt="Mizuki"
         >
 
-        <div class="chat-profile-info">
+        <div class="chat-header-text">
 
-          <p class="chat-profile-name">
+          <strong>
             Mizuki
-          </p>
+          </strong>
 
-          <p class="chat-profile-ig">
+          <span>
             kllurself.ut
-          </p>
+          </span>
 
         </div>
 
-      </div>
+      </header>
 
 
       <!-- FIREBASE MESSAGES -->
 
       <div id="thoughts">
 
-        <div class="loading">
-          loading... ♡
+        <div class="empty">
+          Loading...
         </div>
 
       </div>
@@ -902,16 +722,15 @@ body{
 </main>
 
 
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
-
 <script type="module">
+
+/* =====================================================
+   FIREBASE
+===================================================== */
 
 import {
   initializeApp
-}
-from
+} from
 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 
 
@@ -921,14 +740,9 @@ import {
   query,
   orderBy,
   onSnapshot
-}
-from
+} from
 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
-
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
 
 const firebaseConfig = {
 
@@ -956,134 +770,23 @@ const firebaseConfig = {
 };
 
 
-/* =====================================================
-   FIREBASE
-===================================================== */
-
 const app =
   initializeApp(firebaseConfig);
+
 
 const db =
   getFirestore(app);
 
 
 /* =====================================================
-   POSTS
+   THOUGHTS
 ===================================================== */
 
-const thoughts =
+const thoughtsBox =
   document.getElementById('thoughts');
 
 
-/* =====================================================
-   DATE
-===================================================== */
-
-function formatDate(timestamp){
-
-  if(!timestamp){
-    return '';
-  }
-
-  const date =
-    timestamp.toDate();
-
-  return date.toLocaleString(
-    'th-TH',
-    {
-      year:'numeric',
-      month:'short',
-      day:'numeric',
-      hour:'2-digit',
-      minute:'2-digit'
-    }
-  );
-
-}
-
-
-/* =====================================================
-   CREATE MESSAGE
-===================================================== */
-
-function createPost(post){
-
-  /* แถวของข้อความ */
-
-  const row =
-    document.createElement('div');
-
-  row.className =
-    'message-row';
-
-
-  /* รูปโปรไฟล์เล็ก */
-
-  const avatar =
-    document.createElement('img');
-
-  avatar.className =
-    'message-avatar';
-
-  avatar.src =
-    './IMG_7790.jpeg';
-
-  avatar.alt =
-    'Mizuki';
-
-
-  /* กล่องข้อความ */
-
-  const card =
-    document.createElement('article');
-
-  card.className =
-    'thought-card';
-
-
-  const text =
-    document.createElement('div');
-
-  text.textContent =
-    post.text || '';
-
-
-  card.appendChild(text);
-
-
-  /* วันที่ */
-
-  if(post.createdAt){
-
-    const date =
-      document.createElement('span');
-
-    date.className =
-      'post-date';
-
-    date.textContent =
-      formatDate(post.createdAt);
-
-    card.appendChild(date);
-
-  }
-
-
-  row.appendChild(avatar);
-
-  row.appendChild(card);
-
-
-  return row;
-
-}
-
-
-/* =====================================================
-   REALTIME FIRESTORE
-===================================================== */
-
-const postsQuery =
+const thoughtsQuery =
   query(
     collection(db,'thoughts'),
     orderBy('createdAt','desc')
@@ -1091,12 +794,11 @@ const postsQuery =
 
 
 onSnapshot(
-
-  postsQuery,
+  thoughtsQuery,
 
   (snapshot) => {
 
-    thoughts.innerHTML = '';
+    thoughtsBox.innerHTML = '';
 
 
     if(snapshot.empty){
@@ -1108,9 +810,11 @@ onSnapshot(
         'empty';
 
       empty.textContent =
-        'ยังไม่มีข้อความ ♡';
+        'ยังไม่มีข้อความ';
 
-      thoughts.appendChild(empty);
+      thoughtsBox.appendChild(
+        empty
+      );
 
       return;
 
@@ -1120,8 +824,94 @@ onSnapshot(
     snapshot.forEach(
       (doc) => {
 
-        thoughts.appendChild(
-          createPost(doc.data())
+        const data =
+          doc.data();
+
+
+        /* MESSAGE ROW */
+
+        const row =
+          document.createElement('div');
+
+        row.className =
+          'message-row';
+
+
+        /* AVATAR */
+
+        const avatar =
+          document.createElement('img');
+
+        avatar.className =
+          'message-avatar';
+
+        avatar.src =
+          './IMG_7790.jpeg';
+
+        avatar.alt =
+          'Mizuki';
+
+
+        /* BUBBLE */
+
+        const bubble =
+          document.createElement('div');
+
+        bubble.className =
+          'thought-card';
+
+
+        bubble.textContent =
+          data.text || '';
+
+
+        /* DATE */
+
+        if(data.createdAt){
+
+          const date =
+            data.createdAt
+              .toDate()
+              .toLocaleString(
+                'th-TH',
+                {
+                  day:'numeric',
+                  month:'short',
+                  year:'numeric',
+                  hour:'2-digit',
+                  minute:'2-digit'
+                }
+              );
+
+
+          const dateEl =
+            document.createElement('span');
+
+          dateEl.className =
+            'thought-date';
+
+          dateEl.textContent =
+            date;
+
+
+          bubble.appendChild(
+            dateEl
+          );
+
+        }
+
+
+        row.appendChild(
+          avatar
+        );
+
+        row.appendChild(
+          bubble
+        );
+
+
+        thoughtsBox.appendChild(
+          row
         );
 
       }
@@ -1129,30 +919,24 @@ onSnapshot(
 
   },
 
-
   (error) => {
 
-    console.error(
-      'Firestore error:',
-      error
-    );
+    thoughtsBox.innerHTML = '';
 
-
-    thoughts.innerHTML = '';
-
-
-    const errorMessage =
+    const errorEl =
       document.createElement('div');
 
-    errorMessage.className =
+    errorEl.className =
       'empty';
 
-    errorMessage.textContent =
-      'ไม่สามารถโหลดข้อความได้ ♡';
+    errorEl.textContent =
+      'ไม่สามารถโหลดข้อความได้';
 
-    thoughts.appendChild(
-      errorMessage
+    thoughtsBox.appendChild(
+      errorEl
     );
+
+    console.error(error);
 
   }
 
@@ -1164,14 +948,14 @@ onSnapshot(
 ===================================================== */
 
 const video =
-  document.querySelector(
-    '.video-box video'
+  document.getElementById(
+    'thoughtVideo'
   );
 
 
 function keepVideoPlaying(){
 
-  if(video && video.paused){
+  if(video.paused){
 
     video.play().catch(
       () => {}
@@ -1182,31 +966,33 @@ function keepVideoPlaying(){
 }
 
 
-if(video){
-
-  video.addEventListener(
-    'pause',
-    keepVideoPlaying
-  );
+video.addEventListener(
+  'pause',
+  keepVideoPlaying
+);
 
 
-  video.addEventListener(
-    'ended',
-    () => {
+video.addEventListener(
+  'ended',
+  () => {
 
-      video.currentTime = 0;
+    video.currentTime = 0;
 
-      keepVideoPlaying();
+    keepVideoPlaying();
 
-    }
-  );
+  }
+);
 
 
-  video.play().catch(
-    () => {}
-  );
+video.play().catch(
+  () => {}
+);
 
-}
+
+setInterval(
+  keepVideoPlaying,
+  1000
+);
 
 </script>
 
