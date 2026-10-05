@@ -395,6 +395,42 @@ body{
     );
 }
 /* ==================================================
+   PINK MESSAGE BOX
+================================================== */
+.thought-card{
+  position:relative;
+  margin-top:28px;
+  padding:24px 26px;
+  background:
+    linear-gradient(
+      135deg,
+      #fff2f7,
+      #fde5ef
+    );
+  border-radius:22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(246,194,212,.22),
+    0 8px 22px rgba(190,110,140,.08);
+}
+.thought-card::before{
+  content:"🌸";
+  position:absolute;
+  top:13px;
+  right:18px;
+  font-size:20px;
+  opacity:.7;
+}
+.thought-card-text{
+  margin:0;
+  color:#a66f83;
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+  font-size:1.05rem;
+  line-height:1.9;
+}
+/* ==================================================
    MOBILE
 ================================================== */
 @media(max-width:760px){
@@ -436,6 +472,9 @@ body{
   }
   .thought-title{
     font-size:2rem;
+  }
+  .thought-card{
+    padding:21px 20px;
   }
   .flower.f1{
     font-size:30px;
@@ -533,12 +572,18 @@ body{
   </div>
 </aside>
 <!-- ==================================================
-     EMPTY CONTENT
+     CONTENT
 ================================================== -->
 <section class="thought-content">
   <h2 class="thought-title">
     kllurself.ut
   </h2>
+  <!-- PINK MESSAGE -->
+  <article class="thought-card">
+    <p class="thought-card-text">
+      Do you miss me Linda?
+    </p>
+  </article>
 </section>
   </div>
 </main>
