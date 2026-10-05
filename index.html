@@ -10,7 +10,7 @@
   content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
-<title>Thought — Mizuki</title>
+<title>Mizuki</title>
 
 <link
   href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Itim&display=swap"
@@ -18,6 +18,10 @@
 >
 
 <style>
+
+/* =====================================================
+   BASIC
+===================================================== */
 
 *{
   box-sizing:border-box;
@@ -41,6 +45,7 @@ body{
     sans-serif;
 
   overflow-x:hidden;
+
 }
 
 
@@ -95,31 +100,32 @@ body{
 
   width:100%;
 
-  max-width:680px;
+  max-width:760px;
 
   margin:0 auto;
 
   padding:
-    16px
     12px
+    10px
     45px;
 
 }
 
 
 /* =====================================================
-   VIDEO — TOP
+   VIDEO
+   กว้างเต็ม แต่เตี้ย
 ===================================================== */
 
 .video-box{
 
   width:100%;
 
-  height:190px;
+  height:145px;
 
   overflow:hidden;
 
-  border-radius:28px;
+  border-radius:24px;
 
   background:#fff;
 
@@ -158,20 +164,61 @@ body{
 
 
 /* =====================================================
-   PROFILE AREA
+   WHITE MAIN BOX
+===================================================== */
+
+.content{
+
+  width:100%;
+
+  margin-top:14px;
+
+  padding:
+    20px;
+
+  background:#ffffff;
+
+  border-radius:28px;
+
+  box-shadow:
+    0 10px 35px
+    rgba(145,79,108,.14);
+
+}
+
+
+/* =====================================================
+   PROFILE + THOUGHTS
+===================================================== */
+
+.main-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    125px
+    minmax(0,1fr);
+
+  gap:20px;
+
+  align-items:start;
+
+}
+
+
+/* =====================================================
+   PROFILE — LEFT
 ===================================================== */
 
 .profile{
 
   display:flex;
 
+  flex-direction:column;
+
   align-items:center;
 
-  gap:17px;
-
-  margin:
-    20px 7px
-    18px;
+  text-align:center;
 
 }
 
@@ -181,8 +228,6 @@ body{
   width:92px;
 
   height:92px;
-
-  flex-shrink:0;
 
   border-radius:50%;
 
@@ -199,22 +244,14 @@ body{
 }
 
 
-.profile-info{
-
-  min-width:0;
-
-  text-align:left;
-
-}
-
-
 .profile-name{
 
-  margin:0;
+  margin:
+    9px 0 0;
 
   color:#765064;
 
-  font-size:1.85rem;
+  font-size:1.55rem;
 
   line-height:1;
 
@@ -223,101 +260,28 @@ body{
 }
 
 
-.profile-handle{
+.profile-ig{
 
   margin:
-    5px 0 1px;
+    5px 0 0;
 
-  color:#a76d84;
+  color:#ad788d;
 
-  font-family:'Itim',sans-serif;
+  font-family:
+    'Itim',
+    sans-serif;
 
-  font-size:1.25rem;
+  font-size:.78rem;
 
-}
+  line-height:1.1;
 
-
-.profile-subtitle{
-
-  margin:0;
-
-  color:#b9869a;
-
-  font-family:'Itim',sans-serif;
-
-  font-size:.95rem;
+  white-space:nowrap;
 
 }
 
 
 /* =====================================================
-   DIVIDER
-===================================================== */
-
-.divider{
-
-  text-align:center;
-
-  margin:
-    4px 0
-    17px;
-
-  color:#d68fa9;
-
-  font-size:1.25rem;
-
-  letter-spacing:7px;
-
-}
-
-
-/* =====================================================
-   WHITE CONTENT BOX
-===================================================== */
-
-.content{
-
-  width:100%;
-
-  padding:
-    22px
-    18px
-    28px;
-
-  background:#fff;
-
-  border-radius:30px;
-
-  box-shadow:
-    0 10px 35px
-    rgba(145,79,108,.14);
-
-}
-
-
-/* =====================================================
-   TITLE
-===================================================== */
-
-.thought-title{
-
-  margin:
-    0 0
-    18px;
-
-  text-align:center;
-
-  color:#89586d;
-
-  font-family:'Itim',sans-serif;
-
-  font-size:1.7rem;
-
-}
-
-
-/* =====================================================
-   POSTS
+   THOUGHTS — RIGHT
 ===================================================== */
 
 #thoughts{
@@ -328,35 +292,36 @@ body{
 
   align-items:flex-start;
 
-  gap:11px;
+  gap:10px;
+
+  min-width:0;
 
 }
 
 
 /* =====================================================
-   SMALL PINK THOUGHT BOX
+   PINK THOUGHT BOX
 ===================================================== */
 
 .thought-card{
 
   display:block;
 
-  width:auto;
+  width:fit-content;
 
-  max-width:92%;
+  max-width:100%;
 
   padding:
     10px
-    15px;
+    14px;
 
-  background:
-    #f9d9e7;
+  background:#f9d9e7;
 
   border:
     1px solid
     #efbfd2;
 
-  border-radius:16px;
+  border-radius:15px;
 
   color:#765565;
 
@@ -365,7 +330,7 @@ body{
     'Baloo 2',
     sans-serif;
 
-  font-size:1.08rem;
+  font-size:1.06rem;
 
   line-height:1.5;
 
@@ -390,17 +355,19 @@ body{
 
   display:block;
 
-  margin-top:4px;
+  margin-top:3px;
 
   color:#bd8da0;
 
-  font-family:'Baloo 2',sans-serif;
+  font-family:
+    'Baloo 2',
+    sans-serif;
 
-  font-size:.68rem;
+  font-size:.63rem;
 
   text-align:right;
 
-  opacity:.65;
+  opacity:.6;
 
 }
 
@@ -415,57 +382,15 @@ body{
   width:100%;
 
   padding:
-    22px
-    10px;
+    18px 5px;
 
-  text-align:center;
+  text-align:left;
 
   color:#b78396;
 
-  font-family:'Itim',sans-serif;
-
-}
-
-
-/* =====================================================
-   SPOTIFY
-===================================================== */
-
-.spotify{
-
-  margin:
-    23px 0
-    0;
-
-}
-
-
-.spotify iframe{
-
-  display:block;
-
-  width:100%;
-
-  height:152px;
-
-  border:0;
-
-  border-radius:18px;
-
-}
-
-
-.spotify-caption{
-
-  margin:
-    7px 0
-    0;
-
-  text-align:center;
-
-  color:#b17c91;
-
-  font-family:'Itim',sans-serif;
+  font-family:
+    'Itim',
+    sans-serif;
 
   font-size:.95rem;
 
@@ -476,88 +401,134 @@ body{
    MOBILE
 ===================================================== */
 
-@media(max-width:480px){
+@media(max-width:520px){
 
   .page{
 
     padding:
-      12px
       9px
+      8px
       35px;
 
   }
 
 
+  /* คลิปกว้างมากและสั้น */
+
   .video-box{
 
-    height:150px;
+    height:125px;
 
-    border-radius:24px;
-
-  }
-
-
-  .profile{
-
-    gap:13px;
-
-    margin:
-      17px 5px;
-
-  }
-
-
-  .profile-image{
-
-    width:78px;
-
-    height:78px;
-
-  }
-
-
-  .profile-name{
-
-    font-size:1.6rem;
-
-  }
-
-
-  .profile-handle{
-
-    font-size:1.15rem;
-
-  }
-
-
-  .profile-subtitle{
-
-    font-size:.85rem;
+    border-radius:21px;
 
   }
 
 
   .content{
 
-    padding:
-      20px
-      13px
-      25px;
+    margin-top:11px;
 
-    border-radius:26px;
+    padding:
+      17px
+      13px;
+
+    border-radius:24px;
+
+  }
+
+
+  .main-layout{
+
+    grid-template-columns:
+      92px
+      minmax(0,1fr);
+
+    gap:13px;
+
+  }
+
+
+  .profile-image{
+
+    width:76px;
+
+    height:76px;
+
+  }
+
+
+  .profile-name{
+
+    font-size:1.3rem;
+
+  }
+
+
+  .profile-ig{
+
+    font-size:.68rem;
 
   }
 
 
   .thought-card{
 
-    max-width:94%;
-
     padding:
       9px
-      13px;
+      12px;
 
-    font-size:1.03rem;
+    font-size:.98rem;
+
+    border-radius:14px;
+
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:360px){
+
+  .main-layout{
+
+    grid-template-columns:
+      82px
+      minmax(0,1fr);
+
+    gap:10px;
+
+  }
+
+
+  .profile-image{
+
+    width:68px;
+
+    height:68px;
+
+  }
+
+
+  .profile-name{
+
+    font-size:1.18rem;
+
+  }
+
+
+  .profile-ig{
+
+    font-size:.61rem;
+
+  }
+
+
+  .thought-card{
+
+    font-size:.92rem;
 
   }
 
@@ -571,7 +542,9 @@ body{
 <body>
 
 
-<!-- DECORATIONS -->
+<!-- =====================================================
+     DECORATIONS
+===================================================== -->
 
 <div class="flower one">🌷</div>
 <div class="flower two">🌸</div>
@@ -582,9 +555,9 @@ body{
 <main class="page">
 
 
-  <!-- =================================================
+  <!-- ===================================================
        VIDEO
-  ================================================== -->
+  ==================================================== -->
 
   <div class="video-box">
 
@@ -610,91 +583,57 @@ body{
   </div>
 
 
-  <!-- =================================================
-       PROFILE
-  ================================================== -->
-
-  <section class="profile">
-
-    <img
-      class="profile-image"
-      src="./IMG_7790.jpeg"
-      alt="Mizuki"
-    >
-
-    <div class="profile-info">
-
-      <h1 class="profile-name">
-        Mizuki
-      </h1>
-
-      <p class="profile-handle">
-        kllurself.ut
-      </p>
-
-      <p class="profile-subtitle">
-        ♡ my little thoughts ♡
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- DIVIDER -->
-
-  <div class="divider">
-    ✿ ♡ ✿
-  </div>
-
-
-  <!-- =================================================
-       WHITE BOX
-  ================================================== -->
+  <!-- ===================================================
+       WHITE CONTENT BOX
+  ==================================================== -->
 
   <section class="content">
 
-    <h2 class="thought-title">
-      Thought
-    </h2>
+
+    <div class="main-layout">
 
 
-    <!-- FIREBASE POSTS -->
+      <!-- ===============================================
+           PROFILE — LEFT
+      ================================================ -->
 
-    <div id="thoughts">
+      <aside class="profile">
 
-      <div class="loading">
-        loading thoughts... ♡
+        <img
+          class="profile-image"
+          src="./IMG_7790.jpeg"
+          alt="Mizuki"
+        >
+
+        <h1 class="profile-name">
+          Mizuki
+        </h1>
+
+        <p class="profile-ig">
+          IG: kllurself.ut
+        </p>
+
+      </aside>
+
+
+      <!-- ===============================================
+           THOUGHTS — RIGHT
+      ================================================ -->
+
+      <div id="thoughts">
+
+        <div class="loading">
+          loading... ♡
+        </div>
+
       </div>
 
-    </div>
-
-
-    <!-- =================================================
-         SPOTIFY
-    ================================================== -->
-
-    <div class="spotify">
-
-      <iframe
-        src="https://open.spotify.com/embed/playlist/4TpVXAQdCxZfZNg83WA52t?utm_source=generator"
-        allow="
-          autoplay;
-          clipboard-write;
-          encrypted-media;
-          fullscreen;
-          picture-in-picture
-        "
-        loading="lazy"
-      ></iframe>
-
-      <p class="spotify-caption">
-        if u're bored, just listen to my playlist ♡
-      </p>
 
     </div>
+
 
   </section>
+
 
 </main>
 
@@ -772,6 +711,10 @@ const thoughts =
   document.getElementById('thoughts');
 
 
+/* =====================================================
+   DATE
+===================================================== */
+
 function formatDate(timestamp){
 
   if(!timestamp){
@@ -840,7 +783,7 @@ function createPost(post){
 
 
 /* =====================================================
-   REALTIME
+   REALTIME FIRESTORE
 ===================================================== */
 
 const postsQuery =
@@ -868,7 +811,7 @@ onSnapshot(
         'empty';
 
       empty.textContent =
-        'ยังไม่มี thoughts ♡';
+        'ยังไม่มีข้อความ ♡';
 
       thoughts.appendChild(empty);
 
@@ -908,7 +851,7 @@ onSnapshot(
       'empty';
 
     errorMessage.textContent =
-      'ไม่สามารถโหลด thoughts ได้ ♡';
+      'ไม่สามารถโหลดข้อความได้ ♡';
 
     thoughts.appendChild(
       errorMessage
@@ -949,6 +892,7 @@ if(video){
     keepVideoPlaying
   );
 
+
   video.addEventListener(
     'ended',
     () => {
@@ -959,6 +903,7 @@ if(video){
 
     }
   );
+
 
   video.play().catch(
     () => {}
