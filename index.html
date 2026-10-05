@@ -1,344 +1,593 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
+
 <title>Thought — Mizuki</title>
+
 <link
   href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Itim&display=swap"
   rel="stylesheet"
 >
+
 <style>
-/* =====================================================
-   BASIC
-===================================================== */
+
 *{
   box-sizing:border-box;
 }
+
 html,
 body{
   margin:0;
   min-height:100%;
 }
+
 body{
-  background:
-    #f8dce8;
-  color:#6f5260;
+
+  background:#f8dce8;
+
+  color:#765565;
+
   font-family:
     'Baloo 2',
     'Itim',
     sans-serif;
+
   overflow-x:hidden;
 }
+
+
 /* =====================================================
-   DECORATION
+   DECORATIONS
 ===================================================== */
+
 .flower{
+
   position:fixed;
-  font-size:28px;
-  opacity:.55;
+
   pointer-events:none;
+
   z-index:0;
+
+  opacity:.5;
+
+  font-size:27px;
+
 }
+
 .flower.one{
   top:5%;
   left:4%;
-  transform:rotate(-15deg);
 }
+
 .flower.two{
-  top:28%;
+  top:31%;
   right:4%;
-  transform:rotate(20deg);
 }
+
 .flower.three{
-  bottom:12%;
+  bottom:13%;
   left:5%;
-  transform:rotate(10deg);
 }
+
 .flower.four{
   bottom:4%;
   right:6%;
-  transform:rotate(-15deg);
 }
+
+
 /* =====================================================
-   MAIN
+   PAGE
 ===================================================== */
+
 .page{
+
   position:relative;
+
   z-index:1;
+
   width:100%;
-  max-width:700px;
+
+  max-width:680px;
+
   margin:0 auto;
+
   padding:
-    20px
-    14px
+    16px
+    12px
     45px;
+
 }
+
+
 /* =====================================================
-   TOP VIDEO
+   VIDEO — TOP
 ===================================================== */
+
 .video-box{
+
   width:100%;
-  height:150px;
+
+  height:190px;
+
   overflow:hidden;
+
   border-radius:28px;
+
   background:#fff;
-  box-shadow:
-    0 8px 25px
-    rgba(163,100,126,.15);
+
   border:
     3px solid
-    rgba(255,255,255,.9);
+    rgba(255,255,255,.95);
+
+  box-shadow:
+    0 8px 25px
+    rgba(153,87,115,.16);
+
 }
+
+
 .video-box video{
-  width:100%;
-  height:100%;
+
   display:block;
+
+  width:100%;
+
+  height:100%;
+
   object-fit:cover;
+
   pointer-events:none;
+
   user-select:none;
+
   -webkit-user-select:none;
+
   -webkit-touch-callout:none;
+
   -webkit-user-drag:none;
+
 }
+
+
 /* =====================================================
-   PROFILE
+   PROFILE AREA
 ===================================================== */
+
 .profile{
+
   display:flex;
+
   align-items:center;
-  gap:16px;
+
+  gap:17px;
+
   margin:
-    20px 6px
-    16px;
+    20px 7px
+    18px;
+
 }
+
+
 .profile-image{
-  width:86px;
-  height:86px;
+
+  width:92px;
+
+  height:92px;
+
   flex-shrink:0;
+
   border-radius:50%;
+
   object-fit:cover;
+
   border:
     4px solid
     #fff;
+
   box-shadow:
-    0 5px 18px
-    rgba(153,88,115,.18);
+    0 6px 20px
+    rgba(145,79,108,.2);
+
 }
+
+
 .profile-info{
+
   min-width:0;
+
   text-align:left;
+
 }
+
+
 .profile-name{
+
   margin:0;
-  color:#754f61;
-  font-size:1.8rem;
-  font-weight:700;
+
+  color:#765064;
+
+  font-size:1.85rem;
+
   line-height:1;
+
+  font-weight:700;
+
 }
+
+
 .profile-handle{
+
   margin:
-    4px 0 2px;
-  color:#a56d84;
+    5px 0 1px;
+
+  color:#a76d84;
+
   font-family:'Itim',sans-serif;
-  font-size:1.15rem;
+
+  font-size:1.25rem;
+
 }
+
+
 .profile-subtitle{
+
   margin:0;
-  color:#b17c91;
+
+  color:#b9869a;
+
   font-family:'Itim',sans-serif;
+
   font-size:.95rem;
+
 }
+
+
 /* =====================================================
-   FLOWER DIVIDER
+   DIVIDER
 ===================================================== */
+
 .divider{
+
   text-align:center;
-  color:#d58ca8;
-  font-size:1.35rem;
-  letter-spacing:8px;
+
   margin:
-    8px 0
-    18px;
+    4px 0
+    17px;
+
+  color:#d68fa9;
+
+  font-size:1.25rem;
+
+  letter-spacing:7px;
+
 }
+
+
 /* =====================================================
-   CONTENT
+   WHITE CONTENT BOX
 ===================================================== */
+
 .content{
+
   width:100%;
+
   padding:
-    22px 16px
+    22px
+    18px
     28px;
-  background:#ffffff;
+
+  background:#fff;
+
   border-radius:30px;
+
   box-shadow:
     0 10px 35px
-    rgba(150,87,113,.13);
+    rgba(145,79,108,.14);
+
 }
+
+
 /* =====================================================
-   THOUGHT TITLE
+   TITLE
 ===================================================== */
+
 .thought-title{
+
   margin:
-    0 0 16px;
+    0 0
+    18px;
+
   text-align:center;
-  color:#8d596f;
+
+  color:#89586d;
+
   font-family:'Itim',sans-serif;
-  font-size:1.65rem;
+
+  font-size:1.7rem;
+
 }
+
+
 /* =====================================================
    POSTS
 ===================================================== */
+
 #thoughts{
+
   display:flex;
+
   flex-direction:column;
-  gap:14px;
+
+  align-items:flex-start;
+
+  gap:11px;
+
 }
+
+
+/* =====================================================
+   SMALL PINK THOUGHT BOX
+===================================================== */
+
 .thought-card{
-  width:100%;
+
+  display:block;
+
+  width:auto;
+
+  max-width:92%;
+
   padding:
-    20px
-    18px;
+    10px
+    15px;
+
   background:
-    linear-gradient(
-      135deg,
-      #fde8f0,
-      #f9dce8
-    );
-  border-radius:22px;
+    #f9d9e7;
+
   border:
     1px solid
-    rgba(211,143,169,.25);
-  box-shadow:
-    0 4px 15px
-    rgba(165,91,121,.08);
-  color:#755766;
+    #efbfd2;
+
+  border-radius:16px;
+
+  color:#765565;
+
   font-family:
     'Itim',
     'Baloo 2',
     sans-serif;
-  font-size:1.15rem;
-  line-height:1.65;
+
+  font-size:1.08rem;
+
+  line-height:1.5;
+
   text-align:left;
+
   word-break:break-word;
+
   white-space:pre-wrap;
+
+  box-shadow:
+    0 3px 9px
+    rgba(180,95,130,.08);
+
 }
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
 .post-date{
+
   display:block;
-  margin-top:10px;
+
+  margin-top:4px;
+
   color:#bd8da0;
+
   font-family:'Baloo 2',sans-serif;
-  font-size:.78rem;
+
+  font-size:.68rem;
+
   text-align:right;
-  opacity:.8;
+
+  opacity:.65;
+
 }
+
+
 /* =====================================================
    LOADING / EMPTY
 ===================================================== */
-.loading{
-  padding:25px;
-  text-align:center;
-  color:#b78396;
-  font-family:'Itim',sans-serif;
-  font-size:1.05rem;
-}
+
+.loading,
 .empty{
-  padding:25px 15px;
+
+  width:100%;
+
+  padding:
+    22px
+    10px;
+
   text-align:center;
+
   color:#b78396;
+
   font-family:'Itim',sans-serif;
-  font-size:1.05rem;
+
 }
+
+
 /* =====================================================
    SPOTIFY
 ===================================================== */
+
 .spotify{
+
   margin:
-    18px 0
-    6px;
+    23px 0
+    0;
+
 }
+
+
 .spotify iframe{
+
+  display:block;
+
   width:100%;
+
   height:152px;
+
   border:0;
+
   border-radius:18px;
+
 }
-/* =====================================================
-   SPOTIFY CAPTION
-===================================================== */
+
+
 .spotify-caption{
+
   margin:
-    7px 0 0;
+    7px 0
+    0;
+
   text-align:center;
+
   color:#b17c91;
+
   font-family:'Itim',sans-serif;
+
   font-size:.95rem;
+
 }
+
+
 /* =====================================================
    MOBILE
 ===================================================== */
+
 @media(max-width:480px){
+
   .page{
+
     padding:
-      14px
-      10px
+      12px
+      9px
       35px;
+
   }
+
+
   .video-box{
-    height:125px;
+
+    height:150px;
+
     border-radius:24px;
+
   }
+
+
   .profile{
-    margin-top:18px;
+
+    gap:13px;
+
+    margin:
+      17px 5px;
+
   }
+
+
   .profile-image{
-    width:76px;
-    height:76px;
+
+    width:78px;
+
+    height:78px;
+
   }
+
+
   .profile-name{
+
     font-size:1.6rem;
+
   }
+
+
+  .profile-handle{
+
+    font-size:1.15rem;
+
+  }
+
+
+  .profile-subtitle{
+
+    font-size:.85rem;
+
+  }
+
+
   .content{
+
     padding:
-      19px 12px
-      24px;
+      20px
+      13px
+      25px;
+
     border-radius:26px;
+
   }
+
+
   .thought-card{
+
+    max-width:94%;
+
     padding:
-      17px 15px;
-    font-size:1.08rem;
+      9px
+      13px;
+
+    font-size:1.03rem;
+
   }
+
 }
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-@media(prefers-reduced-motion:reduce){
-  *{
-    scroll-behavior:auto !important;
-  }
-}
+
 </style>
+
 </head>
+
+
 <body>
-<!-- =====================================================
-     DECORATIONS
-===================================================== -->
+
+
+<!-- DECORATIONS -->
+
 <div class="flower one">🌷</div>
 <div class="flower two">🌸</div>
 <div class="flower three">🎀</div>
 <div class="flower four">🌷</div>
-<!-- =====================================================
-     PAGE
-===================================================== -->
+
+
 <main class="page">
-  <!-- ===================================================
+
+
+  <!-- =================================================
        VIDEO
-  ==================================================== -->
+  ================================================== -->
+
   <div class="video-box">
+
     <video
       autoplay
       muted
@@ -350,58 +599,83 @@ body{
       controlslist="nodownload nofullscreen noremoteplayback"
       tabindex="-1"
     >
+
       <source
         src="./snaptik_7635695229902802198_v3.mp4"
         type="video/mp4"
       >
+
     </video>
+
   </div>
-  <!-- ===================================================
+
+
+  <!-- =================================================
        PROFILE
-  ==================================================== -->
+  ================================================== -->
+
   <section class="profile">
+
     <img
       class="profile-image"
       src="./IMG_7790.jpeg"
       alt="Mizuki"
     >
+
     <div class="profile-info">
+
       <h1 class="profile-name">
         Mizuki
       </h1>
+
       <p class="profile-handle">
         kllurself.ut
       </p>
+
       <p class="profile-subtitle">
         ♡ my little thoughts ♡
       </p>
+
     </div>
+
   </section>
-  <!-- ===================================================
-       DIVIDER
-  ==================================================== -->
+
+
+  <!-- DIVIDER -->
+
   <div class="divider">
     ✿ ♡ ✿
   </div>
-  <!-- ===================================================
-       CONTENT
-  ==================================================== -->
+
+
+  <!-- =================================================
+       WHITE BOX
+  ================================================== -->
+
   <section class="content">
+
     <h2 class="thought-title">
       Thought
     </h2>
-    <!-- =================================================
-         FIRESTORE POSTS APPEAR HERE
-    ================================================== -->
+
+
+    <!-- FIREBASE POSTS -->
+
     <div id="thoughts">
+
       <div class="loading">
         loading thoughts... ♡
       </div>
+
     </div>
+
+
     <!-- =================================================
          SPOTIFY
     ================================================== -->
+
     <div class="spotify">
+
       <iframe
         src="https://open.spotify.com/embed/playlist/4TpVXAQdCxZfZNg83WA52t?utm_source=generator"
         allow="
@@ -413,21 +687,31 @@ body{
         "
         loading="lazy"
       ></iframe>
+
       <p class="spotify-caption">
         if u're bored, just listen to my playlist ♡
       </p>
+
     </div>
+
   </section>
+
 </main>
+
+
 <!-- =====================================================
      FIREBASE
 ===================================================== -->
+
 <script type="module">
+
 import {
   initializeApp
 }
 from
 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+
+
 import {
   getFirestore,
   collection,
@@ -437,46 +721,66 @@ import {
 }
 from
 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+
 /* =====================================================
    FIREBASE CONFIG
 ===================================================== */
+
 const firebaseConfig = {
+
   apiKey:
     "AIzaSyDL5KlmnirvhpTr6rhnKRKpQncRl6gfLXk",
+
   authDomain:
     "rainyren-4f684.firebaseapp.com",
+
   projectId:
     "rainyren-4f684",
+
   storageBucket:
     "rainyren-4f684.appspot.com",
+
   messagingSenderId:
     "804536782078",
+
   appId:
     "1:804536782078:web:f70657a0abaa9809e169af",
+
   measurementId:
     "G-KWQS2SQ308"
+
 };
+
+
 /* =====================================================
-   INITIALIZE
+   FIREBASE
 ===================================================== */
+
 const app =
   initializeApp(firebaseConfig);
+
 const db =
   getFirestore(app);
+
+
 /* =====================================================
-   POSTS CONTAINER
+   POSTS
 ===================================================== */
+
 const thoughts =
   document.getElementById('thoughts');
-/* =====================================================
-   FORMAT DATE
-===================================================== */
+
+
 function formatDate(timestamp){
+
   if(!timestamp){
     return '';
   }
+
   const date =
     timestamp.toDate();
+
   return date.toLocaleString(
     'th-TH',
     {
@@ -487,113 +791,184 @@ function formatDate(timestamp){
       minute:'2-digit'
     }
   );
+
 }
+
+
 /* =====================================================
-   CREATE POST CARD
+   CREATE POST
 ===================================================== */
+
 function createPost(post){
+
   const card =
     document.createElement('article');
+
   card.className =
     'thought-card';
+
+
   const text =
     document.createElement('div');
-  /*
-    ใช้ textContent
-    เพื่อป้องกัน HTML แปลก ๆ
-    จากข้อความที่ถูกเขียนใน Admin
-  */
+
   text.textContent =
     post.text || '';
+
+
   card.appendChild(text);
+
+
   if(post.createdAt){
+
     const date =
       document.createElement('span');
+
     date.className =
       'post-date';
+
     date.textContent =
       formatDate(post.createdAt);
+
     card.appendChild(date);
+
   }
+
+
   return card;
+
 }
+
+
 /* =====================================================
-   REALTIME FIRESTORE
+   REALTIME
 ===================================================== */
+
 const postsQuery =
   query(
-    collection(db, 'thoughts'),
-    orderBy('createdAt', 'desc')
+    collection(db,'thoughts'),
+    orderBy('createdAt','desc')
   );
+
+
 onSnapshot(
+
   postsQuery,
+
   (snapshot) => {
+
     thoughts.innerHTML = '';
+
+
     if(snapshot.empty){
+
       const empty =
         document.createElement('div');
+
       empty.className =
         'empty';
+
       empty.textContent =
         'ยังไม่มี thoughts ♡';
+
       thoughts.appendChild(empty);
+
       return;
+
     }
+
+
     snapshot.forEach(
       (doc) => {
-        const post =
-          doc.data();
+
         thoughts.appendChild(
-          createPost(post)
+          createPost(doc.data())
         );
+
       }
     );
+
   },
+
+
   (error) => {
+
     console.error(
       'Firestore error:',
       error
     );
+
+
     thoughts.innerHTML = '';
+
+
     const errorMessage =
       document.createElement('div');
+
     errorMessage.className =
       'empty';
+
     errorMessage.textContent =
       'ไม่สามารถโหลด thoughts ได้ ♡';
+
     thoughts.appendChild(
       errorMessage
     );
+
   }
+
 );
+
+
 /* =====================================================
-   KEEP VIDEO PLAYING
+   VIDEO
 ===================================================== */
+
 const video =
-  document.querySelector('.video-box video');
+  document.querySelector(
+    '.video-box video'
+  );
+
+
 function keepVideoPlaying(){
+
   if(video && video.paused){
+
     video.play().catch(
       () => {}
     );
+
   }
+
 }
+
+
 if(video){
+
   video.addEventListener(
     'pause',
     keepVideoPlaying
   );
+
   video.addEventListener(
     'ended',
     () => {
+
       video.currentTime = 0;
+
       keepVideoPlaying();
+
     }
   );
+
   video.play().catch(
     () => {}
   );
+
 }
+
 </script>
+
+
 </body>
+
 </html>
