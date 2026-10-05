@@ -1,333 +1,1156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
 <title>Thought — Admin</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Itim&display=swap"
+  rel="stylesheet"
+>
+
 
 <style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
 *{
   box-sizing:border-box;
 }
 
-html,body{
+
+html,
+body{
+
   margin:0;
+
   padding:0;
+
   min-height:100%;
+
 }
+
 
 body{
+
   background:#f9dce8;
+
   color:#9b687d;
-  font-family:"Baloo 2","Itim",sans-serif;
+
+  font-family:
+    "Baloo 2",
+    "Itim",
+    sans-serif;
+
 }
+
 
 .page{
-  width:min(760px,92%);
-  margin:30px auto 60px;
+
+  width:min(
+    760px,
+    92%
+  );
+
+  margin:
+    30px
+    auto
+    60px;
+
 }
 
-/* =========================
+
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 .header{
+
   background:#fff;
+
   border-radius:28px;
-  padding:26px 28px;
+
+  padding:
+    26px
+    28px;
+
   box-shadow:
-    0 10px 25px rgba(170,95,125,.10),
-    0 2px 7px rgba(170,95,125,.05);
+
+    0 10px 25px
+    rgba(170,95,125,.10),
+
+    0 2px 7px
+    rgba(170,95,125,.05);
+
   position:relative;
+
 }
+
 
 .header::before{
+
   content:"🎀";
+
   position:absolute;
+
   top:12px;
+
   left:16px;
+
   font-size:22px;
+
 }
+
 
 .header::after{
+
   content:"🌸";
+
   position:absolute;
+
   right:16px;
+
   bottom:12px;
+
   font-size:19px;
+
   opacity:.65;
+
 }
+
 
 .title{
+
   margin:0;
+
   text-align:center;
-  font-family:"Itim","Baloo 2",sans-serif;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
   color:#a66f83;
+
   font-size:2rem;
+
 }
+
 
 .subtitle{
-  margin:4px 0 0;
+
+  margin:
+    4px
+    0
+    0;
+
   text-align:center;
+
   color:#c48aa0;
+
   font-size:.9rem;
+
 }
 
-/* =========================
+
+/* =====================================================
    LOGIN
-========================= */
+===================================================== */
 
 .login-box{
+
   margin-top:20px;
+
   background:#fff;
+
   border-radius:25px;
+
   padding:26px;
+
   box-shadow:
-    0 10px 25px rgba(170,95,125,.10);
+    0 10px 25px
+    rgba(170,95,125,.10);
+
 }
+
 
 .login-box h2{
-  margin:0 0 18px;
-  font-family:"Itim","Baloo 2",sans-serif;
+
+  margin:
+    0
+    0
+    18px;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
   color:#a66f83;
+
   text-align:center;
+
 }
+
 
 .input{
+
   width:100%;
-  padding:13px 15px;
+
+  padding:
+    13px
+    15px;
+
   margin-bottom:12px;
+
   border:0;
+
   outline:none;
+
   border-radius:15px;
+
   background:#fff0f5;
+
   color:#9b687d;
+
   font-family:inherit;
+
   font-size:.95rem;
+
 }
+
 
 .input:focus{
-  box-shadow:0 0 0 2px #f2b8ce;
+
+  box-shadow:
+    0 0 0 2px
+    #f2b8ce;
+
 }
+
 
 .button{
+
   width:100%;
+
   border:0;
+
   border-radius:15px;
-  padding:13px 18px;
+
+  padding:
+    13px
+    18px;
+
   background:#d45b89;
+
   color:#fff;
-  font-family:"Itim","Baloo 2",sans-serif;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
   font-size:1rem;
+
   cursor:pointer;
+
   transition:.2s;
+
 }
+
 
 .button:hover{
-  transform:translateY(-1px);
+
+  transform:
+    translateY(-1px);
+
   opacity:.9;
+
 }
+
 
 .message{
-  margin:12px 0 0;
+
+  margin:
+    12px
+    0
+    0;
+
   text-align:center;
+
   font-size:.85rem;
+
   color:#c05b82;
+
 }
 
-/* =========================
+
+/* =====================================================
    ADMIN AREA
-========================= */
+===================================================== */
 
 .admin-area{
+
   display:none;
+
   margin-top:20px;
+
 }
+
+
+/* =====================================================
+   WRITE BOX
+===================================================== */
 
 .write-box{
+
   background:#fff;
+
   border-radius:25px;
+
   padding:26px;
+
   box-shadow:
-    0 10px 25px rgba(170,95,125,.10);
+    0 10px 25px
+    rgba(170,95,125,.10);
+
 }
+
 
 .write-title{
-  margin:0 0 14px;
-  font-family:"Itim","Baloo 2",sans-serif;
+
+  margin:
+    0
+    0
+    14px;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
   color:#a66f83;
+
   font-size:1.35rem;
+
 }
+
 
 textarea{
+
   width:100%;
+
   min-height:180px;
+
   resize:vertical;
+
   border:0;
+
   outline:none;
+
   border-radius:18px;
+
   padding:17px;
+
   background:#fff0f5;
+
   color:#9b687d;
-  font-family:"Itim","Baloo 2",sans-serif;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
   font-size:1rem;
+
   line-height:1.7;
+
 }
+
 
 textarea:focus{
-  box-shadow:0 0 0 2px #f2b8ce;
+
+  box-shadow:
+    0 0 0 2px
+    #f2b8ce;
+
 }
+
 
 .publish{
+
   margin-top:13px;
+
 }
 
-/* =========================
-   POSTS
-========================= */
-
-.posts{
-  margin-top:20px;
-}
-
-.posts-title{
-  margin:0 0 12px;
-  font-family:"Itim","Baloo 2",sans-serif;
-  color:#a66f83;
-}
-
-.post{
-  background:#fff;
-  border-radius:22px;
-  padding:20px;
-  margin-bottom:14px;
-  box-shadow:
-    0 8px 20px rgba(170,95,125,.08);
-}
-
-.post-date{
-  font-size:.72rem;
-  color:#c48aa0;
-  margin-bottom:7px;
-}
-
-.post-text{
-  white-space:pre-wrap;
-  color:#a66f83;
-  font-family:"Itim","Baloo 2",sans-serif;
-  font-size:1rem;
-  line-height:1.7;
-}
-
-.post-actions{
-  display:flex;
-  gap:8px;
-  margin-top:14px;
-}
-
-.small-button{
-  border:0;
-  border-radius:12px;
-  padding:8px 14px;
-  font-family:inherit;
-  cursor:pointer;
-}
-
-.edit-button{
-  background:#f8d8e5;
-  color:#a66f83;
-}
-
-.delete-button{
-  background:#f2b7c9;
-  color:#8e5069;
-}
 
 .logout{
+
   margin-top:14px;
+
   background:#fff;
+
   color:#a66f83;
-  box-shadow:inset 0 0 0 1px #f0c5d5;
+
+  box-shadow:
+    inset
+    0 0 0 1px
+    #f0c5d5;
+
 }
 
-/* =========================
+
+/* =====================================================
+   ANALYTICS NAV
+===================================================== */
+
+.analytics-nav{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:10px;
+
+  margin-top:20px;
+
+}
+
+
+.analytics-tab{
+
+  border:0;
+
+  border-radius:17px;
+
+  padding:
+    13px
+    10px;
+
+  background:#fff;
+
+  color:#a66f83;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  font-size:1rem;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(170,95,125,.08);
+
+  transition:.2s;
+
+}
+
+
+.analytics-tab:hover{
+
+  transform:
+    translateY(-1px);
+
+}
+
+
+.analytics-tab.active{
+
+  background:#d45b89;
+
+  color:#fff;
+
+}
+
+
+/* =====================================================
+   ANALYTICS AREA
+===================================================== */
+
+.analytics-area{
+
+  margin-top:14px;
+
+}
+
+
+.analytics-panel{
+
+  display:none;
+
+}
+
+
+.analytics-panel.active{
+
+  display:block;
+
+}
+
+
+/* =====================================================
+   STATS GRID
+===================================================== */
+
+.stats-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0,1fr)
+    );
+
+  gap:12px;
+
+}
+
+
+.stat-card{
+
+  background:#fff;
+
+  border-radius:22px;
+
+  padding:
+    20px
+    17px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(170,95,125,.08);
+
+}
+
+
+.stat-label{
+
+  color:#c48aa0;
+
+  font-size:.78rem;
+
+}
+
+
+.stat-value{
+
+  margin-top:4px;
+
+  color:#a66f83;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  font-size:1.75rem;
+
+  font-weight:700;
+
+  line-height:1.1;
+
+}
+
+
+.stat-small{
+
+  margin-top:4px;
+
+  color:#c48aa0;
+
+  font-size:.72rem;
+
+}
+
+
+/* =====================================================
+   ANALYTICS NOTE
+===================================================== */
+
+.analytics-note{
+
+  margin-top:12px;
+
+  padding:
+    13px
+    16px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  border-radius:17px;
+
+  color:#b27c91;
+
+  font-size:.78rem;
+
+  line-height:1.5;
+
+  text-align:center;
+
+}
+
+
+/* =====================================================
+   RANKING SWITCH
+===================================================== */
+
+.ranking-switch{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:8px;
+
+  margin-bottom:12px;
+
+}
+
+
+.ranking-button{
+
+  border:0;
+
+  border-radius:14px;
+
+  padding:
+    10px;
+
+  background:#fff;
+
+  color:#b27c91;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  cursor:pointer;
+
+}
+
+
+.ranking-button.active{
+
+  background:#f2b7c9;
+
+  color:#8e5069;
+
+}
+
+
+/* =====================================================
+   RANKING LIST
+===================================================== */
+
+.ranking-list{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+
+}
+
+
+.rank-item{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  background:#fff;
+
+  border-radius:20px;
+
+  padding:
+    14px
+    15px;
+
+  box-shadow:
+    0 7px 18px
+    rgba(170,95,125,.07);
+
+}
+
+
+.rank-number{
+
+  flex:
+    0 0 40px;
+
+  width:40px;
+
+  height:40px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#f9e3eb;
+
+  color:#a66f83;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+}
+
+
+.rank-item:nth-child(1)
+.rank-number{
+
+  background:#f7d79b;
+
+  color:#916b2c;
+
+}
+
+
+.rank-item:nth-child(2)
+.rank-number{
+
+  background:#e5e5e5;
+
+  color:#777;
+
+}
+
+
+.rank-item:nth-child(3)
+.rank-number{
+
+  background:#edc6aa;
+
+  color:#8c6048;
+
+}
+
+
+.rank-info{
+
+  min-width:0;
+
+  flex:1;
+
+}
+
+
+.rank-device{
+
+  color:#9d687d;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+
+  white-space:nowrap;
+
+}
+
+
+.rank-meta{
+
+  margin-top:2px;
+
+  color:#c08da0;
+
+  font-size:.73rem;
+
+  line-height:1.4;
+
+}
+
+
+.rank-count{
+
+  flex:
+    0 0 auto;
+
+  text-align:right;
+
+  color:#a66f83;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  font-size:1.05rem;
+
+  font-weight:700;
+
+}
+
+
+.rank-count span{
+
+  display:block;
+
+  color:#c08da0;
+
+  font-family:
+    "Baloo 2",
+    sans-serif;
+
+  font-size:.68rem;
+
+  font-weight:400;
+
+}
+
+
+/* =====================================================
+   POSTS
+===================================================== */
+
+.posts{
+
+  margin-top:20px;
+
+}
+
+
+.posts-title{
+
+  margin:
+    0
+    0
+    12px;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  color:#a66f83;
+
+}
+
+
+.post{
+
+  background:#fff;
+
+  border-radius:22px;
+
+  padding:20px;
+
+  margin-bottom:14px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(170,95,125,.08);
+
+}
+
+
+.post-date{
+
+  font-size:.72rem;
+
+  color:#c48aa0;
+
+  margin-bottom:7px;
+
+}
+
+
+.post-text{
+
+  white-space:pre-wrap;
+
+  color:#a66f83;
+
+  font-family:
+    "Itim",
+    "Baloo 2",
+    sans-serif;
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+}
+
+
+.post-actions{
+
+  display:flex;
+
+  gap:8px;
+
+  margin-top:14px;
+
+}
+
+
+.small-button{
+
+  border:0;
+
+  border-radius:12px;
+
+  padding:
+    8px
+    14px;
+
+  font-family:inherit;
+
+  cursor:pointer;
+
+}
+
+
+.edit-button{
+
+  background:#f8d8e5;
+
+  color:#a66f83;
+
+}
+
+
+.delete-button{
+
+  background:#f2b7c9;
+
+  color:#8e5069;
+
+}
+
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:700px){
 
   .page{
+
     width:92%;
+
     margin-top:18px;
+
   }
+
 
   .header{
-    padding:23px 20px;
+
+    padding:
+      23px
+      20px;
+
     border-radius:24px;
+
   }
 
+
   .title{
+
     font-size:1.7rem;
+
   }
+
 
   .login-box,
   .write-box{
+
     padding:21px;
+
     border-radius:22px;
+
   }
 
+
   textarea{
+
     min-height:160px;
+
   }
+
+
+  .stats-grid{
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+  }
+
+
+  .rank-item{
+
+    padding:
+      13px
+      12px;
+
+  }
+
+
+  .rank-number{
+
+    flex-basis:36px;
+
+    width:36px;
+
+    height:36px;
+
+  }
+
 }
+
+
+@media(max-width:380px){
+
+  .stats-grid{
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="page">
 
+
+  <!-- =================================================
+       HEADER
+  ================================================== -->
+
   <section class="header">
-    <h1 class="title">Thought Admin</h1>
-    <p class="subtitle">write something whenever you want ♡</p>
+
+    <h1 class="title">
+      Thought Admin
+    </h1>
+
+    <p class="subtitle">
+      write something whenever you want ♡
+    </p>
+
   </section>
 
-  <!-- LOGIN -->
-  <section class="login-box" id="loginBox">
 
-    <h2>♡ Login</h2>
+  <!-- =================================================
+       LOGIN
+  ================================================== -->
+
+  <section
+    class="login-box"
+    id="loginBox"
+  >
+
+    <h2>
+      ♡ Login
+    </h2>
+
 
     <input
       class="input"
       id="email"
       type="email"
-      placeholder="Email">
+      placeholder="Email"
+    >
+
 
     <input
       class="input"
       id="password"
       type="password"
-      placeholder="Password">
+      placeholder="Password"
+    >
+
 
     <button
       class="button"
-      id="loginButton">
+      id="loginButton"
+    >
       Login ♡
     </button>
 
+
     <p
       class="message"
-      id="loginMessage">
-    </p>
+      id="loginMessage"
+    ></p>
 
   </section>
 
-  <!-- ADMIN -->
-  <section class="admin-area" id="adminArea">
+
+  <!-- =================================================
+       ADMIN
+  ================================================== -->
+
+  <section
+    class="admin-area"
+    id="adminArea"
+  >
+
+
+    <!-- =================================================
+         WRITE
+    ================================================== -->
 
     <div class="write-box">
 
@@ -335,28 +1158,263 @@ textarea:focus{
         Write a thought ♡
       </h2>
 
+
       <textarea
         id="thoughtInput"
-        placeholder="write whatever is on your mind..."></textarea>
+        placeholder="write whatever is on your mind..."
+      ></textarea>
+
 
       <button
         class="button publish"
-        id="publishButton">
+        id="publishButton"
+      >
         Publish ♡
       </button>
 
+
       <p
         class="message"
-        id="publishMessage">
-      </p>
+        id="publishMessage"
+      ></p>
+
 
       <button
         class="button logout"
-        id="logoutButton">
+        id="logoutButton"
+      >
         Logout
       </button>
 
     </div>
+
+
+    <!-- =================================================
+         ANALYTICS NAV
+    ================================================== -->
+
+    <div class="analytics-nav">
+
+      <button
+        class="analytics-tab active"
+        id="statsTab"
+        type="button"
+      >
+        📊 สถิติ
+      </button>
+
+
+      <button
+        class="analytics-tab"
+        id="rankingTab"
+        type="button"
+      >
+        🏆 จัดอันดับ
+      </button>
+
+    </div>
+
+
+    <!-- =================================================
+         ANALYTICS
+    ================================================== -->
+
+    <div class="analytics-area">
+
+
+      <!-- ================= STATS ================= -->
+
+      <section
+        class="analytics-panel active"
+        id="statsPanel"
+      >
+
+        <div class="stats-grid">
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              Total Views
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalViews"
+            >
+              —
+            </div>
+
+            <div class="stat-small">
+              จำนวนครั้งที่เปิด Thought
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              Unique Visitors
+            </div>
+
+            <div
+              class="stat-value"
+              id="uniqueVisitors"
+            >
+              —
+            </div>
+
+            <div class="stat-small">
+              รหัสเครื่อง/เบราว์เซอร์
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              Returning Visitors
+            </div>
+
+            <div
+              class="stat-value"
+              id="returningVisitors"
+            >
+              —
+            </div>
+
+            <div class="stat-small">
+              เครื่องที่กลับมาอีก
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              Total Sessions
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalSessions"
+            >
+              —
+            </div>
+
+            <div class="stat-small">
+              จำนวน Session ทั้งหมด
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              Total Time
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalTime"
+            >
+              —
+            </div>
+
+            <div class="stat-small">
+              เวลารวมทั้งหมด
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              Average Time
+            </div>
+
+            <div
+              class="stat-value"
+              id="averageTime"
+            >
+              —
+            </div>
+
+            <div class="stat-small">
+              เวลาเฉลี่ยต่อ Session
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="analytics-note">
+
+          ข้อมูลนี้ใช้รหัสสุ่มของเบราว์เซอร์
+          ไม่ได้เก็บชื่อ Email หรือ IP ของผู้เข้าชม ♡
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= RANKING ================= -->
+
+      <section
+        class="analytics-panel"
+        id="rankingPanel"
+      >
+
+
+        <div class="ranking-switch">
+
+          <button
+            class="ranking-button active"
+            id="viewsRankingButton"
+            type="button"
+          >
+            🏆 เข้าบ่อยที่สุด
+          </button>
+
+
+          <button
+            class="ranking-button"
+            id="timeRankingButton"
+            type="button"
+          >
+            ⏱️ อยู่นานที่สุด
+          </button>
+
+        </div>
+
+
+        <div
+          class="ranking-list"
+          id="rankingList"
+        >
+
+          <div class="analytics-note">
+            Loading...
+          </div>
+
+        </div>
+
+
+      </section>
+
+    </div>
+
+
+    <!-- =================================================
+         POSTS
+    ================================================== -->
 
     <div class="posts">
 
@@ -364,30 +1422,38 @@ textarea:focus{
         Your thoughts
       </h2>
 
+
       <div id="postsList"></div>
 
     </div>
+
 
   </section>
 
 </div>
 
+
 <script type="module">
 
-/* =========================
+
+/* =====================================================
    FIREBASE
-========================= */
+===================================================== */
 
 import {
   initializeApp
-} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+} from
+"https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+
 
 import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+} from
+"https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
 
 import {
   getFirestore,
@@ -400,93 +1466,254 @@ import {
   updateDoc,
   deleteDoc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
+
+/* =====================================================
+   CONFIG
+===================================================== */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDL5KlmnirvhpTr6rhnKRKpQncRl6gfLXk",
-  authDomain: "rainyren-4f684.firebaseapp.com",
-  projectId: "rainyren-4f684",
-  storageBucket: "rainyren-4f684.appspot.com",
-  messagingSenderId: "804536782078",
-  appId: "1:804536782078:web:f70657a0abaa9809e169af",
-  measurementId: "G-KWQS2SQ308"
+
+  apiKey:
+    "AIzaSyDL5KlmnirvhpTr6rhnKRKpQncRl6gfLXk",
+
+  authDomain:
+    "rainyren-4f684.firebaseapp.com",
+
+  projectId:
+    "rainyren-4f684",
+
+  storageBucket:
+    "rainyren-4f684.appspot.com",
+
+  messagingSenderId:
+    "804536782078",
+
+  appId:
+    "1:804536782078:web:f70657a0abaa9809e169af",
+
+  measurementId:
+    "G-KWQS2SQ308"
+
 };
 
 
-/* =========================
+/* =====================================================
    INITIALIZE
-========================= */
+===================================================== */
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(
+    firebaseConfig
+  );
 
-const auth = getAuth(app);
 
-const db = getFirestore(app);
+const auth =
+  getAuth(app);
 
 
-/* =========================
+const db =
+  getFirestore(app);
+
+
+/* =====================================================
    ELEMENTS
-========================= */
+===================================================== */
 
 const loginBox =
-  document.getElementById("loginBox");
+  document.getElementById(
+    "loginBox"
+  );
+
 
 const adminArea =
-  document.getElementById("adminArea");
+  document.getElementById(
+    "adminArea"
+  );
+
 
 const emailInput =
-  document.getElementById("email");
+  document.getElementById(
+    "email"
+  );
+
 
 const passwordInput =
-  document.getElementById("password");
+  document.getElementById(
+    "password"
+  );
+
 
 const loginButton =
-  document.getElementById("loginButton");
+  document.getElementById(
+    "loginButton"
+  );
+
 
 const loginMessage =
-  document.getElementById("loginMessage");
+  document.getElementById(
+    "loginMessage"
+  );
+
 
 const thoughtInput =
-  document.getElementById("thoughtInput");
+  document.getElementById(
+    "thoughtInput"
+  );
+
 
 const publishButton =
-  document.getElementById("publishButton");
+  document.getElementById(
+    "publishButton"
+  );
+
 
 const publishMessage =
-  document.getElementById("publishMessage");
+  document.getElementById(
+    "publishMessage"
+  );
+
 
 const logoutButton =
-  document.getElementById("logoutButton");
+  document.getElementById(
+    "logoutButton"
+  );
+
 
 const postsList =
-  document.getElementById("postsList");
+  document.getElementById(
+    "postsList"
+  );
 
 
-/* =========================
+/* =====================================================
+   ANALYTICS ELEMENTS
+===================================================== */
+
+const statsTab =
+  document.getElementById(
+    "statsTab"
+  );
+
+
+const rankingTab =
+  document.getElementById(
+    "rankingTab"
+  );
+
+
+const statsPanel =
+  document.getElementById(
+    "statsPanel"
+  );
+
+
+const rankingPanel =
+  document.getElementById(
+    "rankingPanel"
+  );
+
+
+const totalViewsEl =
+  document.getElementById(
+    "totalViews"
+  );
+
+
+const uniqueVisitorsEl =
+  document.getElementById(
+    "uniqueVisitors"
+  );
+
+
+const returningVisitorsEl =
+  document.getElementById(
+    "returningVisitors"
+  );
+
+
+const totalSessionsEl =
+  document.getElementById(
+    "totalSessions"
+  );
+
+
+const totalTimeEl =
+  document.getElementById(
+    "totalTime"
+  );
+
+
+const averageTimeEl =
+  document.getElementById(
+    "averageTime"
+  );
+
+
+const rankingList =
+  document.getElementById(
+    "rankingList"
+  );
+
+
+const viewsRankingButton =
+  document.getElementById(
+    "viewsRankingButton"
+  );
+
+
+const timeRankingButton =
+  document.getElementById(
+    "timeRankingButton"
+  );
+
+
+/* =====================================================
+   ANALYTICS STATE
+===================================================== */
+
+let analyticsData = [];
+
+let currentRanking =
+  "views";
+
+
+/* =====================================================
    LOGIN
-========================= */
+===================================================== */
 
 loginButton.addEventListener(
+
   "click",
+
   async () => {
 
     const email =
       emailInput.value.trim();
 
+
     const password =
       passwordInput.value;
 
-    if(!email || !password){
+
+    if(
+      !email ||
+      !password
+    ){
 
       loginMessage.textContent =
         "Please enter your email and password.";
 
       return;
+
     }
+
 
     loginMessage.textContent =
       "Logging in...";
+
 
     try{
 
@@ -496,79 +1723,102 @@ loginButton.addEventListener(
         password
       );
 
-      loginMessage.textContent = "";
+
+      loginMessage.textContent =
+        "";
 
     }catch(error){
 
       loginMessage.textContent =
         "Login failed. Please check your email and password.";
 
-      console.error(error);
+      console.error(
+        error
+      );
+
     }
 
   }
+
 );
 
 
-/* =========================
+/* =====================================================
    AUTH STATE
-========================= */
+===================================================== */
 
 onAuthStateChanged(
+
   auth,
+
   async (user) => {
 
     if(user){
 
       /*
-        Extra protection:
-        only your UID can use the admin page.
-      */
+       * Extra protection.
+       */
 
       if(
         user.uid !==
         "Lkmx693TXZNME9wpAywVVjnOqg73"
       ){
 
-        await signOut(auth);
+        await signOut(
+          auth
+        );
+
 
         loginMessage.textContent =
           "This account is not allowed.";
 
         return;
+
       }
+
 
       loginBox.style.display =
         "none";
 
+
       adminArea.style.display =
         "block";
 
+
       await loadPosts();
+
+
+      await loadAnalytics();
 
     }else{
 
       loginBox.style.display =
         "block";
 
+
       adminArea.style.display =
         "none";
+
     }
 
   }
+
 );
 
 
-/* =========================
+/* =====================================================
    PUBLISH
-========================= */
+===================================================== */
 
 publishButton.addEventListener(
+
   "click",
+
   async () => {
 
     const text =
       thoughtInput.value.trim();
+
 
     if(!text){
 
@@ -576,61 +1826,99 @@ publishButton.addEventListener(
         "Write something first ♡";
 
       return;
+
     }
+
 
     publishMessage.textContent =
       "Publishing...";
 
+
     try{
 
       await addDoc(
-        collection(db,"thoughts"),
+
+        collection(
+          db,
+          "thoughts"
+        ),
+
         {
+
           text:text,
-          createdAt:serverTimestamp()
+
+          createdAt:
+            serverTimestamp()
+
         }
+
       );
 
-      thoughtInput.value = "";
+
+      thoughtInput.value =
+        "";
+
 
       publishMessage.textContent =
         "Published ♡";
+
 
       await loadPosts();
 
     }catch(error){
 
-      console.error(error);
+      console.error(
+        error
+      );
+
 
       publishMessage.textContent =
         "Something went wrong.";
+
     }
 
   }
+
 );
 
 
-/* =========================
+/* =====================================================
    LOAD POSTS
-========================= */
+===================================================== */
 
 async function loadPosts(){
 
   postsList.innerHTML =
     "<p>Loading...</p>";
 
+
   try{
 
     const q =
       query(
-        collection(db,"thoughts"),
-        orderBy("createdAt","desc")
+
+        collection(
+          db,
+          "thoughts"
+        ),
+
+        orderBy(
+          "createdAt",
+          "desc"
+        )
+
       );
 
-    const snapshot =
-      await getDocs(q);
 
-    postsList.innerHTML = "";
+    const snapshot =
+      await getDocs(
+        q
+      );
+
+
+    postsList.innerHTML =
+      "";
+
 
     if(snapshot.empty){
 
@@ -638,85 +1926,126 @@ async function loadPosts(){
         "<p>No thoughts yet ♡</p>";
 
       return;
+
     }
 
+
     snapshot.forEach(
+
       (item) => {
 
         const data =
           item.data();
 
+
         const post =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
+
 
         post.className =
           "post";
 
+
         const date =
           data.createdAt
+
             ? data.createdAt
                 .toDate()
                 .toLocaleString()
+
             : "Just now";
 
+
         post.innerHTML = `
+
           <div class="post-date">
-            ${date}
+            ${escapeHtml(date)}
           </div>
 
           <div class="post-text">
-            ${escapeHtml(data.text)}
+            ${escapeHtml(data.text || "")}
           </div>
 
           <div class="post-actions">
 
             <button
-              class="small-button edit-button">
+              class="small-button edit-button"
+              type="button">
               Edit
             </button>
 
             <button
-              class="small-button delete-button">
+              class="small-button delete-button"
+              type="button">
               Delete
             </button>
 
           </div>
+
         `;
 
-        post
-          .querySelector(".edit-button")
-          .addEventListener(
-            "click",
-            () => editPost(
-              item.id,
-              data.text
-            )
-          );
 
         post
-          .querySelector(".delete-button")
+          .querySelector(
+            ".edit-button"
+          )
           .addEventListener(
+
             "click",
-            () => deletePost(item.id)
+
+            () =>
+              editPost(
+                item.id,
+                data.text || ""
+              )
+
           );
 
-        postsList.appendChild(post);
+
+        post
+          .querySelector(
+            ".delete-button"
+          )
+          .addEventListener(
+
+            "click",
+
+            () =>
+              deletePost(
+                item.id
+              )
+
+          );
+
+
+        postsList.appendChild(
+          post
+        );
+
       }
+
     );
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
+
 
     postsList.innerHTML =
       "<p>Could not load posts.</p>";
+
   }
+
 }
 
 
-/* =========================
+/* =====================================================
    EDIT
-========================= */
+===================================================== */
 
 async function editPost(
   id,
@@ -729,99 +2058,865 @@ async function editPost(
       oldText
     );
 
+
   if(
     newText === null ||
     !newText.trim()
   ){
+
     return;
+
   }
+
 
   try{
 
     await updateDoc(
-      doc(db,"thoughts",id),
+
+      doc(
+        db,
+        "thoughts",
+        id
+      ),
+
       {
-        text:newText.trim()
+
+        text:
+          newText.trim()
+
       }
+
     );
+
 
     await loadPosts();
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
+
 
     alert(
       "Could not update this thought."
     );
+
   }
+
 }
 
 
-/* =========================
+/* =====================================================
    DELETE
-========================= */
+===================================================== */
 
-async function deletePost(id){
+async function deletePost(
+  id
+){
 
   const confirmDelete =
     confirm(
       "Delete this thought?"
     );
 
+
   if(!confirmDelete){
+
     return;
+
   }
+
 
   try{
 
     await deleteDoc(
-      doc(db,"thoughts",id)
+
+      doc(
+        db,
+        "thoughts",
+        id
+      )
+
     );
+
 
     await loadPosts();
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
+
 
     alert(
       "Could not delete this thought."
     );
+
   }
+
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* =====================================================
+   ANALYTICS — LOAD
+===================================================== */
 
-logoutButton.addEventListener(
-  "click",
-  async () => {
+async function loadAnalytics(){
 
-    await signOut(auth);
+  totalViewsEl.textContent =
+    "…";
+
+
+  uniqueVisitorsEl.textContent =
+    "…";
+
+
+  returningVisitorsEl.textContent =
+    "…";
+
+
+  totalSessionsEl.textContent =
+    "…";
+
+
+  totalTimeEl.textContent =
+    "…";
+
+
+  averageTimeEl.textContent =
+    "…";
+
+
+  rankingList.innerHTML = `
+
+    <div class="analytics-note">
+      Loading...
+    </div>
+
+  `;
+
+
+  try{
+
+    const snapshot =
+      await getDocs(
+
+        collection(
+          db,
+          "analytics"
+        )
+
+      );
+
+
+    analyticsData = [];
+
+
+    snapshot.forEach(
+
+      (item) => {
+
+        const data =
+          item.data();
+
+
+        analyticsData.push({
+
+          id:
+            item.id,
+
+          deviceId:
+            data.deviceId ||
+            item.id,
+
+          views:
+            Number(
+              data.views || 0
+            ),
+
+          sessions:
+            Number(
+              data.sessions || 0
+            ),
+
+          totalSeconds:
+            Number(
+              data.totalSeconds || 0
+            ),
+
+          lastSeen:
+            data.lastSeen || null
+
+        });
+
+      }
+
+    );
+
+
+    calculateStats();
+
+
+    renderRanking();
+
+
+  }catch(error){
+
+    console.error(
+      "Analytics error:",
+      error
+    );
+
+
+    totalViewsEl.textContent =
+      "—";
+
+
+    uniqueVisitorsEl.textContent =
+      "—";
+
+
+    returningVisitorsEl.textContent =
+      "—";
+
+
+    totalSessionsEl.textContent =
+      "—";
+
+
+    totalTimeEl.textContent =
+      "—";
+
+
+    averageTimeEl.textContent =
+      "—";
+
+
+    rankingList.innerHTML = `
+
+      <div class="analytics-note">
+        ไม่สามารถโหลดข้อมูลสถิติได้
+      </div>
+
+    `;
 
   }
+
+}
+
+
+/* =====================================================
+   CALCULATE STATS
+===================================================== */
+
+function calculateStats(){
+
+  const uniqueVisitors =
+    analyticsData.length;
+
+
+  let totalViews =
+    0;
+
+
+  let totalSessions =
+    0;
+
+
+  let totalSeconds =
+    0;
+
+
+  let returningVisitors =
+    0;
+
+
+  analyticsData.forEach(
+
+    (device) => {
+
+      totalViews +=
+        device.views;
+
+
+      totalSessions +=
+        device.sessions;
+
+
+      totalSeconds +=
+        device.totalSeconds;
+
+
+      if(
+        device.views > 1
+      ){
+
+        returningVisitors++;
+
+      }
+
+    }
+
+  );
+
+
+  const averageSeconds =
+    totalSessions > 0
+
+      ? totalSeconds /
+        totalSessions
+
+      : 0;
+
+
+  totalViewsEl.textContent =
+    formatNumber(
+      totalViews
+    );
+
+
+  uniqueVisitorsEl.textContent =
+    formatNumber(
+      uniqueVisitors
+    );
+
+
+  returningVisitorsEl.textContent =
+    formatNumber(
+      returningVisitors
+    );
+
+
+  totalSessionsEl.textContent =
+    formatNumber(
+      totalSessions
+    );
+
+
+  totalTimeEl.textContent =
+    formatDuration(
+      totalSeconds
+    );
+
+
+  averageTimeEl.textContent =
+    formatDuration(
+      averageSeconds
+    );
+
+}
+
+
+/* =====================================================
+   RANKING
+===================================================== */
+
+function renderRanking(){
+
+  if(
+    !analyticsData.length
+  ){
+
+    rankingList.innerHTML = `
+
+      <div class="analytics-note">
+        ยังไม่มีข้อมูลผู้เข้าชม ♡
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const sorted =
+    [...analyticsData];
+
+
+  if(
+    currentRanking ===
+    "views"
+  ){
+
+    sorted.sort(
+
+      (a,b) =>
+        b.views -
+        a.views
+
+    );
+
+  }else{
+
+    sorted.sort(
+
+      (a,b) =>
+        b.totalSeconds -
+        a.totalSeconds
+
+    );
+
+  }
+
+
+  const topFive =
+    sorted.slice(
+      0,
+      5
+    );
+
+
+  rankingList.innerHTML =
+    "";
+
+
+  topFive.forEach(
+
+    (device,index) => {
+
+      const item =
+        document.createElement(
+          "div"
+        );
+
+
+      item.className =
+        "rank-item";
+
+
+      const number =
+        document.createElement(
+          "div"
+        );
+
+
+      number.className =
+        "rank-number";
+
+
+      number.textContent =
+        getRankLabel(
+          index
+        );
+
+
+      const info =
+        document.createElement(
+          "div"
+        );
+
+
+      info.className =
+        "rank-info";
+
+
+      const deviceName =
+        document.createElement(
+          "div"
+        );
+
+
+      deviceName.className =
+        "rank-device";
+
+
+      deviceName.textContent =
+        device.deviceId;
+
+
+      const meta =
+        document.createElement(
+          "div"
+        );
+
+
+      meta.className =
+        "rank-meta";
+
+
+      meta.textContent =
+        `${formatNumber(
+          device.sessions
+        )} sessions • ${formatDuration(
+          device.totalSeconds
+        )} total`;
+
+
+      info.appendChild(
+        deviceName
+      );
+
+
+      info.appendChild(
+        meta
+      );
+
+
+      const count =
+        document.createElement(
+          "div"
+        );
+
+
+      count.className =
+        "rank-count";
+
+
+      if(
+        currentRanking ===
+        "views"
+      ){
+
+        count.textContent =
+          formatNumber(
+            device.views
+          );
+
+
+        const label =
+          document.createElement(
+            "span"
+          );
+
+
+        label.textContent =
+          "views";
+
+
+        count.appendChild(
+          label
+        );
+
+      }else{
+
+        count.textContent =
+          formatDuration(
+            device.totalSeconds
+          );
+
+
+        const label =
+          document.createElement(
+            "span"
+          );
+
+
+        label.textContent =
+          "เวลา";
+
+
+        count.appendChild(
+          label
+        );
+
+      }
+
+
+      item.appendChild(
+        number
+      );
+
+
+      item.appendChild(
+        info
+      );
+
+
+      item.appendChild(
+        count
+      );
+
+
+      rankingList.appendChild(
+        item
+      );
+
+    }
+
+  );
+
+}
+
+
+/* =====================================================
+   RANKING BUTTONS
+===================================================== */
+
+viewsRankingButton.addEventListener(
+
+  "click",
+
+  () => {
+
+    currentRanking =
+      "views";
+
+
+    viewsRankingButton.classList.add(
+      "active"
+    );
+
+
+    timeRankingButton.classList.remove(
+      "active"
+    );
+
+
+    renderRanking();
+
+  }
+
 );
 
 
-/* =========================
-   ESCAPE HTML
-========================= */
+timeRankingButton.addEventListener(
 
-function escapeHtml(text){
+  "click",
+
+  () => {
+
+    currentRanking =
+      "time";
+
+
+    timeRankingButton.classList.add(
+      "active"
+    );
+
+
+    viewsRankingButton.classList.remove(
+      "active"
+    );
+
+
+    renderRanking();
+
+  }
+
+);
+
+
+/* =====================================================
+   ANALYTICS TABS
+===================================================== */
+
+statsTab.addEventListener(
+
+  "click",
+
+  () => {
+
+    statsTab.classList.add(
+      "active"
+    );
+
+
+    rankingTab.classList.remove(
+      "active"
+    );
+
+
+    statsPanel.classList.add(
+      "active"
+    );
+
+
+    rankingPanel.classList.remove(
+      "active"
+    );
+
+  }
+
+);
+
+
+rankingTab.addEventListener(
+
+  "click",
+
+  () => {
+
+    rankingTab.classList.add(
+      "active"
+    );
+
+
+    statsTab.classList.remove(
+      "active"
+    );
+
+
+    rankingPanel.classList.add(
+      "active"
+    );
+
+
+    statsPanel.classList.remove(
+      "active"
+    );
+
+
+    renderRanking();
+
+  }
+
+);
+
+
+/* =====================================================
+   FORMAT NUMBER
+===================================================== */
+
+function formatNumber(
+  value
+){
+
+  return Number(
+    value || 0
+  ).toLocaleString(
+    "th-TH"
+  );
+
+}
+
+
+/* =====================================================
+   FORMAT DURATION
+===================================================== */
+
+function formatDuration(
+  seconds
+){
+
+  seconds =
+    Math.max(
+      0,
+      Math.round(
+        Number(
+          seconds || 0
+        )
+      )
+    );
+
+
+  const hours =
+    Math.floor(
+      seconds / 3600
+    );
+
+
+  const minutes =
+    Math.floor(
+      (seconds % 3600) / 60
+    );
+
+
+  const secs =
+    seconds % 60;
+
+
+  if(hours > 0){
+
+    return `${hours}h ${minutes}m`;
+
+  }
+
+
+  if(minutes > 0){
+
+    return `${minutes}m ${secs}s`;
+
+  }
+
+
+  return `${secs}s`;
+
+}
+
+
+/* =====================================================
+   RANK LABEL
+===================================================== */
+
+function getRankLabel(
+  index
+){
+
+  if(index === 0){
+
+    return "🥇";
+
+  }
+
+
+  if(index === 1){
+
+    return "🥈";
+
+  }
+
+
+  if(index === 2){
+
+    return "🥉";
+
+  }
+
+
+  return String(
+    index + 1
+  );
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutButton.addEventListener(
+
+  "click",
+
+  async () => {
+
+    await signOut(
+      auth
+    );
+
+  }
+
+);
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(
+  text
+){
 
   const div =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   div.textContent =
     text;
 
+
   return div.innerHTML;
+
 }
 
 </script>
 
+
 </body>
+
 </html>
