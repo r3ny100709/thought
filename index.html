@@ -474,7 +474,17 @@ body{
 
   line-height:1.65;
 
+  /*
+   * สำคัญ:
+   * รักษาการขึ้นบรรทัดใหม่
+   * และบรรทัดว่างจากข้อความของแอดมิน
+   */
+
+  white-space:pre-wrap;
+
   word-break:break-word;
+
+  overflow-wrap:anywhere;
 
   box-shadow:
     0 3px 10px
@@ -525,13 +535,17 @@ body{
 
   display:block;
 
-  margin-top:7px;
+  margin-top:10px;
+
+  padding-top:3px;
 
   font-size:.68rem;
 
   color:#b78b9c;
 
   text-align:right;
+
+  white-space:normal;
 
 }
 
@@ -636,6 +650,8 @@ body{
       calc(100% - 5px);
 
     font-size:.9rem;
+
+    line-height:1.7;
 
   }
 
@@ -961,6 +977,15 @@ onSnapshot(
         bubble.className =
           'thought-card';
 
+        /*
+         * ใช้ textContent เหมือนเดิม
+         * เพื่อความปลอดภัย
+         *
+         * ส่วน white-space:pre-wrap
+         * ใน CSS จะเป็นตัวรักษา Enter
+         * และบรรทัดว่าง
+         */
+
         bubble.textContent =
           data.text || '';
 
@@ -1051,18 +1076,6 @@ onSnapshot(
    VISITOR ID
 ===================================================== */
 
-/*
- * สร้างรหัสประจำเบราว์เซอร์แบบสุ่ม
- *
- * ตัวอย่าง:
- * REN-7K4P2
- *
- * ไม่ใช้ชื่อ
- * ไม่ใช้ Email
- * ไม่ใช้ IP
- * ไม่ใช้ fingerprint
- */
-
 const DEVICE_KEY =
   'rainyren_thought_device_id';
 
@@ -1132,25 +1145,13 @@ let analyticsReady =
   false;
 
 
-/*
- * เวลาที่ Session นี้เริ่ม
- */
-
 const sessionStarted =
   Date.now();
 
 
-/*
- * เวลาที่บันทึกครั้งล่าสุด
- */
-
 let lastTimeSaved =
   sessionStarted;
 
-
-/*
- * ป้องกันการปิดหน้าแล้วบันทึกซ้ำ
- */
 
 let sessionClosed =
   false;
@@ -1164,13 +1165,6 @@ async function startAnalytics(){
 
   try{
 
-    /*
-     * ทุกครั้งที่เปิดหน้า:
-     *
-     * views +1
-     * sessions +1
-     */
-
     await setDoc(
 
       analyticsRef,
@@ -1178,7 +1172,6 @@ async function startAnalytics(){
       {
 
         deviceId:
-
           deviceId,
 
         views:
@@ -1247,21 +1240,12 @@ async function saveSessionTime(){
     );
 
 
-  /*
-   * ป้องกันค่าผิดปกติ
-   */
-
   if(seconds < 1){
 
     return;
 
   }
 
-
-  /*
-   * จำกัดครั้งละไม่เกิน 60 วินาที
-   * เพื่อไม่ให้เกิดค่าผิดปกติหากเครื่องถูกพักไว้
-   */
 
   if(seconds > 60){
 
@@ -1308,18 +1292,10 @@ async function saveSessionTime(){
    HEARTBEAT
 ===================================================== */
 
-/*
- * ทุก 15 วินาที
- * บันทึกเวลาที่อยู่ในเว็บ
- */
-
 const analyticsTimer =
   setInterval(
-
     saveSessionTime,
-
     15000
-
   );
 
 
@@ -1344,12 +1320,6 @@ function closeAnalytics(){
     analyticsTimer
   );
 
-
-  /*
-   * updateDoc เป็น asynchronous
-   * เราเรียกไว้ตอน pagehide
-   * เพื่อบันทึกเวลาช่วงสุดท้าย
-   */
 
   const now =
     Date.now();
@@ -1446,7 +1416,6 @@ video.addEventListener(
 
 video.addEventListener(
   'ended',
-
   () => {
 
     video.currentTime = 0;
@@ -1454,7 +1423,6 @@ video.addEventListener(
     keepVideoPlaying();
 
   }
-
 );
 
 
